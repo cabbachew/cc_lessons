@@ -8,11 +8,6 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: [
-          "Inter var",
-          "var(--font-inter)",
-          ...require("tailwindcss/defaultTheme").fontFamily.sans,
-        ],
         apercu: ["Apercu Pro", "sans-serif"],
         "apercu-mono": ["Apercu Mono Pro", "monospace"],
       },

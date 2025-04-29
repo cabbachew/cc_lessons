@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { inter, apercuPro, apercuMonoPro } from "./fonts";
 import "./globals.css";
-import "./fonts.css";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "CC Lessons",
@@ -15,10 +14,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} ${apercuPro.variable} ${apercuMonoPro.variable} antialiased`}
-      >
-        {children}
+      <body>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
