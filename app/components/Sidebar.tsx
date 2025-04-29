@@ -14,7 +14,9 @@ import {
   ArrowRightOnRectangleIcon,
   BellIcon,
   ArrowLeftCircleIcon,
+  ArrowRightCircleIcon,
 } from "@heroicons/react/24/outline";
+import { useState } from "react";
 
 type NavItem = {
   name: string;
@@ -35,11 +37,17 @@ const navItems: NavItem[] = [
 ];
 
 export function Sidebar() {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
   return (
     <Box
       as="aside"
       h="100vh"
-      w="200px"
+      w={isCollapsed ? "70px" : "200px"}
       bg="white"
       borderRight="2px"
       borderColor="gray.200"
@@ -48,16 +56,37 @@ export function Sidebar() {
       top={0}
       display="flex"
       flexDirection="column"
+      transition="width 0.3s ease"
     >
       <Box px={4} py={6} overflowY="auto" flex="1">
-        <Box mt={6} mb={6} width="100%" display="flex" justifyContent="center">
-          <Image
-            src="/wordmark_black.webp"
-            alt="CC Lessons Wordmark"
-            width={100}
-            height={25}
-            priority
-          />
+        <Box
+          mt={6}
+          mb={14}
+          width="100%"
+          minHeight="25px"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+        >
+          {isCollapsed ? (
+            <Image
+              src="/wordmark_black_short.webp"
+              alt="CC Lessons Short Wordmark"
+              width={30}
+              height={25}
+              style={{ width: "auto", height: "auto" }}
+              priority
+            />
+          ) : (
+            <Image
+              src="/wordmark_black.webp"
+              alt="CC Lessons Wordmark"
+              width={80}
+              height={20}
+              style={{ width: "auto", height: "auto" }}
+              priority
+            />
+          )}
         </Box>
 
         <VStack spacing={4} align="start" width="100%" mx={-4}>
@@ -67,7 +96,7 @@ export function Sidebar() {
               href="#"
               py={2}
               px={4}
-              width="200px"
+              width={isCollapsed ? "70px" : "200px"}
               display="flex"
               alignItems="center"
               _hover={{ bg: "#fff8ec" }}
@@ -76,11 +105,12 @@ export function Sidebar() {
               fontWeight="600"
               letterSpacing="1.5px"
               onClick={(e) => e.preventDefault()}
+              justifyContent={isCollapsed ? "center" : "flex-start"}
             >
-              <Box ml={4} mr={6}>
+              <Box ml={isCollapsed ? 0 : 4} mr={isCollapsed ? 0 : 6}>
                 {item.icon}
               </Box>
-              {item.name}
+              {!isCollapsed && item.name}
             </Link>
           ))}
         </VStack>
@@ -99,8 +129,15 @@ export function Sidebar() {
           alignItems="center"
           justifyContent="center"
           boxShadow="sm"
+          cursor="pointer"
+          onClick={toggleSidebar}
+          zIndex="1"
         >
-          <ArrowLeftCircleIcon width={18} color="#111827" strokeWidth={2} />
+          {isCollapsed ? (
+            <ArrowRightCircleIcon width={18} color="#111827" strokeWidth={2} />
+          ) : (
+            <ArrowLeftCircleIcon width={18} color="#111827" strokeWidth={2} />
+          )}
         </Box>
 
         <VStack spacing={4} align="start" width="100%" py={4}>
@@ -108,7 +145,7 @@ export function Sidebar() {
             href="#"
             py={2}
             px={4}
-            width="200px"
+            width={isCollapsed ? "70px" : "200px"}
             display="flex"
             alignItems="center"
             _hover={{ bg: "#fff8ec" }}
@@ -117,18 +154,19 @@ export function Sidebar() {
             fontWeight="600"
             letterSpacing="1.5px"
             onClick={(e) => e.preventDefault()}
+            justifyContent={isCollapsed ? "center" : "flex-start"}
           >
-            <Box ml={4} mr={6}>
+            <Box ml={isCollapsed ? 0 : 4} mr={isCollapsed ? 0 : 6}>
               <BellIcon width={16} />
             </Box>
-            NOTIFICATIONS
+            {!isCollapsed && "NOTIFICATIONS"}
           </Link>
 
           <Link
             href="#"
             py={2}
             px={4}
-            width="200px"
+            width={isCollapsed ? "70px" : "200px"}
             display="flex"
             alignItems="center"
             _hover={{ bg: "#fff8ec" }}
@@ -137,18 +175,19 @@ export function Sidebar() {
             fontWeight="600"
             letterSpacing="1.5px"
             onClick={(e) => e.preventDefault()}
+            justifyContent={isCollapsed ? "center" : "flex-start"}
           >
-            <Box ml={4} mr={6}>
+            <Box ml={isCollapsed ? 0 : 4} mr={isCollapsed ? 0 : 6}>
               <Cog8ToothIcon width={16} />
             </Box>
-            SETTINGS
+            {!isCollapsed && "SETTINGS"}
           </Link>
 
           <Link
             href="#"
             py={2}
             px={4}
-            width="200px"
+            width={isCollapsed ? "70px" : "200px"}
             display="flex"
             alignItems="center"
             _hover={{ bg: "#fff8ec" }}
@@ -157,11 +196,12 @@ export function Sidebar() {
             fontWeight="600"
             letterSpacing="1.5px"
             onClick={(e) => e.preventDefault()}
+            justifyContent={isCollapsed ? "center" : "flex-start"}
           >
-            <Box ml={4} mr={6}>
+            <Box ml={isCollapsed ? 0 : 4} mr={isCollapsed ? 0 : 6}>
               <ArrowRightOnRectangleIcon width={16} />
             </Box>
-            SIGN OUT
+            {!isCollapsed && "SIGN OUT"}
           </Link>
         </VStack>
       </Box>
