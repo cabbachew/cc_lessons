@@ -22,17 +22,30 @@ type NavItem = {
   name: string;
   href: string;
   icon: React.ReactNode;
+  isActive?: boolean;
 };
 
 const navItems: NavItem[] = [
-  { name: "HOME", href: "/", icon: <HomeIcon width={16} /> },
-  { name: "STUDENTS", href: "/students", icon: <AcademicCapIcon width={16} /> },
-  { name: "FINANCE", href: "/finance", icon: <BanknotesIcon width={16} /> },
-  { name: "CALENDAR", href: "/calendar", icon: <CalendarIcon width={16} /> },
+  { name: "HOME", href: "/", icon: <HomeIcon width={18} />, isActive: true },
+  {
+    name: "STUDENTS",
+    href: "/students",
+    icon: <AcademicCapIcon width={18} color="#9ca3af" />,
+  },
+  {
+    name: "FINANCE",
+    href: "/finance",
+    icon: <BanknotesIcon width={18} color="#9ca3af" />,
+  },
+  {
+    name: "CALENDAR",
+    href: "/calendar",
+    icon: <CalendarIcon width={18} color="#9ca3af" />,
+  },
   {
     name: "AVAILABILITY",
     href: "/availability",
-    icon: <ClockIcon width={16} />,
+    icon: <ClockIcon width={18} color="#9ca3af" />,
   },
 ];
 
@@ -44,17 +57,17 @@ export function Sidebar() {
       as="aside"
       h="100vh"
       w={isCollapsed ? "70px" : "200px"}
-      bg="white"
+      bg={isCollapsed ? "#fde68a" : "white"}
       borderRight="2px"
-      borderColor="gray.200"
+      borderColor={isCollapsed ? "white" : "gray.200"}
       position="fixed"
       left={0}
       top={0}
       display="flex"
       flexDirection="column"
-      transition="width 0.3s ease"
+      transition="width 0.3s ease, background-color 0.3s ease, border-color 0.3s ease"
     >
-      <Box px={4} py={6} overflowY="auto" flex="1">
+      <Box px={4} py={6} overflowY="auto" flex="1" bg="transparent">
         <Box
           mt={6}
           mb={14}
@@ -95,13 +108,14 @@ export function Sidebar() {
               width={isCollapsed ? "70px" : "200px"}
               display="flex"
               alignItems="center"
-              _hover={{ bg: "#fff8ec" }}
+              _hover={{ bg: isCollapsed ? "#e3c757" : "#fff8ec" }}
               className={apercuMono.className}
               fontSize="10px"
               fontWeight="600"
               letterSpacing="1.5px"
               onClick={(e) => e.preventDefault()}
               justifyContent={isCollapsed ? "center" : "flex-start"}
+              color={item.isActive ? "inherit" : "#6b6280"}
             >
               <Box ml={isCollapsed ? 0 : 4} mr={isCollapsed ? 0 : 6}>
                 {item.icon}
@@ -112,13 +126,13 @@ export function Sidebar() {
         </VStack>
       </Box>
 
-      <Box width="100%" position="relative" bg="white">
-        <Divider borderColor="gray.200" />
+      <Box width="100%" position="relative" bg="transparent">
+        <Divider borderColor={isCollapsed ? "white" : "gray.200"} />
         <Box
           position="absolute"
-          right="-12px"
+          right={isCollapsed ? "-11px" : "-12px"}
           top="-11px"
-          bg="gray.200"
+          bg={isCollapsed ? "white" : "gray.200"}
           p="0.5"
           borderRadius="full"
           display="flex"
@@ -128,6 +142,7 @@ export function Sidebar() {
           cursor="pointer"
           onClick={toggleSidebar}
           zIndex="1"
+          transition="background-color 0.3s ease, right 0.3s ease"
         >
           {isCollapsed ? (
             <ArrowRightCircleIcon width={18} color="#111827" strokeWidth={2} />
@@ -144,16 +159,17 @@ export function Sidebar() {
             width={isCollapsed ? "70px" : "200px"}
             display="flex"
             alignItems="center"
-            _hover={{ bg: "#fff8ec" }}
+            _hover={{ bg: isCollapsed ? "#e3c757" : "#fff8ec" }}
             className={apercuMono.className}
             fontSize="10px"
             fontWeight="600"
             letterSpacing="1.5px"
             onClick={(e) => e.preventDefault()}
             justifyContent={isCollapsed ? "center" : "flex-start"}
+            color="#6b6280"
           >
             <Box ml={isCollapsed ? 0 : 4} mr={isCollapsed ? 0 : 6}>
-              <BellIcon width={16} />
+              <BellIcon width={18} color="#9ca3af" />
             </Box>
             {!isCollapsed && "NOTIFICATIONS"}
           </Link>
@@ -165,16 +181,17 @@ export function Sidebar() {
             width={isCollapsed ? "70px" : "200px"}
             display="flex"
             alignItems="center"
-            _hover={{ bg: "#fff8ec" }}
+            _hover={{ bg: isCollapsed ? "#e3c757" : "#fff8ec" }}
             className={apercuMono.className}
             fontSize="10px"
             fontWeight="600"
             letterSpacing="1.5px"
             onClick={(e) => e.preventDefault()}
             justifyContent={isCollapsed ? "center" : "flex-start"}
+            color="#6b6280"
           >
             <Box ml={isCollapsed ? 0 : 4} mr={isCollapsed ? 0 : 6}>
-              <Cog8ToothIcon width={16} />
+              <Cog8ToothIcon width={18} color="#9ca3af" />
             </Box>
             {!isCollapsed && "SETTINGS"}
           </Link>
@@ -186,16 +203,17 @@ export function Sidebar() {
             width={isCollapsed ? "70px" : "200px"}
             display="flex"
             alignItems="center"
-            _hover={{ bg: "#fff8ec" }}
+            _hover={{ bg: isCollapsed ? "#e3c757" : "#fff8ec" }}
             className={apercuMono.className}
             fontSize="10px"
             fontWeight="600"
             letterSpacing="1.5px"
             onClick={(e) => e.preventDefault()}
             justifyContent={isCollapsed ? "center" : "flex-start"}
+            color="#6b6280"
           >
             <Box ml={isCollapsed ? 0 : 4} mr={isCollapsed ? 0 : 6}>
-              <ArrowRightOnRectangleIcon width={16} />
+              <ArrowRightOnRectangleIcon width={18} color="#9ca3af" />
             </Box>
             {!isCollapsed && "SIGN OUT"}
           </Link>
