@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, VStack, Divider } from "@chakra-ui/react";
+import { Box, VStack, Divider, Tooltip } from "@chakra-ui/react";
 import { Link } from "@chakra-ui/next-js";
 import Image from "next/image";
 import { apercuMono } from "../fonts";
@@ -76,8 +76,13 @@ export function Sidebar() {
           display="flex"
           justifyContent="center"
           alignItems="center"
+          position="relative"
         >
-          {isCollapsed ? (
+          <Box
+            position="absolute"
+            opacity={isCollapsed ? 1 : 0}
+            transition="opacity 0.3s ease"
+          >
             <Image
               src="/wordmark_black_short.webp"
               alt="CC Lessons Short Wordmark"
@@ -86,7 +91,12 @@ export function Sidebar() {
               style={{ width: "auto", height: "auto" }}
               priority
             />
-          ) : (
+          </Box>
+          <Box
+            position="absolute"
+            opacity={isCollapsed ? 0 : 1}
+            transition="opacity 0.3s ease"
+          >
             <Image
               src="/wordmark_black.webp"
               alt="CC Lessons Wordmark"
@@ -95,33 +105,58 @@ export function Sidebar() {
               style={{ width: "auto", height: "auto" }}
               priority
             />
-          )}
+          </Box>
         </Box>
 
         <VStack spacing={4} align="start" width="100%" mx={-4}>
           {navItems.map((item) => (
-            <Link
+            <Tooltip
               key={item.name}
-              href="#"
-              py={2}
-              px={4}
-              width={isCollapsed ? "70px" : "200px"}
-              display="flex"
-              alignItems="center"
-              _hover={{ bg: isCollapsed ? "#e3c757" : "#fff8ec" }}
-              className={apercuMono.className}
+              label={item.name}
+              placement="right"
+              isDisabled={!isCollapsed}
+              bg="#111827"
+              color="white"
               fontSize="10px"
               fontWeight="600"
               letterSpacing="1.5px"
-              onClick={(e) => e.preventDefault()}
-              justifyContent={isCollapsed ? "center" : "flex-start"}
-              color={item.isActive ? "inherit" : "#6b6280"}
+              fontFamily={apercuMono.style.fontFamily}
+              borderRadius="md"
+              hasArrow
+              arrowSize={8}
+              px={3}
+              py={2}
             >
-              <Box ml={isCollapsed ? 0 : 4} mr={isCollapsed ? 0 : 6}>
-                {item.icon}
-              </Box>
-              {!isCollapsed && item.name}
-            </Link>
+              <Link
+                href="#"
+                py={2}
+                px={4}
+                width={isCollapsed ? "70px" : "200px"}
+                display="flex"
+                alignItems="center"
+                _hover={{ bg: isCollapsed ? "#e3c757" : "#fff8ec" }}
+                className={apercuMono.className}
+                fontSize="10px"
+                fontWeight="600"
+                letterSpacing="1.5px"
+                onClick={(e) => e.preventDefault()}
+                justifyContent={isCollapsed ? "center" : "flex-start"}
+                color={item.isActive ? "inherit" : "#6b6280"}
+                bg={
+                  item.isActive
+                    ? isCollapsed
+                      ? "#e3c757"
+                      : "#fff8ec"
+                    : "transparent"
+                }
+                transition="width 0.3s ease, background-color 0.3s ease, margin 0.3s ease"
+              >
+                <Box ml={isCollapsed ? 0 : 4} mr={isCollapsed ? 0 : 6}>
+                  {item.icon}
+                </Box>
+                {!isCollapsed && item.name}
+              </Link>
+            </Tooltip>
           ))}
         </VStack>
       </Box>
@@ -152,71 +187,122 @@ export function Sidebar() {
         </Box>
 
         <VStack spacing={4} align="start" width="100%" py={4}>
-          <Link
-            href="#"
-            py={2}
-            px={4}
-            width={isCollapsed ? "70px" : "200px"}
-            display="flex"
-            alignItems="center"
-            _hover={{ bg: isCollapsed ? "#e3c757" : "#fff8ec" }}
-            className={apercuMono.className}
+          <Tooltip
+            label="NOTIFICATIONS"
+            placement="right"
+            isDisabled={!isCollapsed}
+            bg="#111827"
+            color="white"
             fontSize="10px"
             fontWeight="600"
             letterSpacing="1.5px"
-            onClick={(e) => e.preventDefault()}
-            justifyContent={isCollapsed ? "center" : "flex-start"}
-            color="#6b6280"
+            fontFamily={apercuMono.style.fontFamily}
+            borderRadius="md"
+            hasArrow
+            arrowSize={8}
+            px={3}
+            py={2}
           >
-            <Box ml={isCollapsed ? 0 : 4} mr={isCollapsed ? 0 : 6}>
-              <BellIcon width={18} color="#9ca3af" />
-            </Box>
-            {!isCollapsed && "NOTIFICATIONS"}
-          </Link>
+            <Link
+              href="#"
+              py={2}
+              px={4}
+              width={isCollapsed ? "70px" : "200px"}
+              display="flex"
+              alignItems="center"
+              _hover={{ bg: isCollapsed ? "#e3c757" : "#fff8ec" }}
+              className={apercuMono.className}
+              fontSize="10px"
+              fontWeight="600"
+              letterSpacing="1.5px"
+              onClick={(e) => e.preventDefault()}
+              justifyContent={isCollapsed ? "center" : "flex-start"}
+              color="#6b6280"
+            >
+              <Box ml={isCollapsed ? 0 : 4} mr={isCollapsed ? 0 : 6}>
+                <BellIcon width={18} color="#9ca3af" />
+              </Box>
+              {!isCollapsed && "NOTIFICATIONS"}
+            </Link>
+          </Tooltip>
 
-          <Link
-            href="#"
-            py={2}
-            px={4}
-            width={isCollapsed ? "70px" : "200px"}
-            display="flex"
-            alignItems="center"
-            _hover={{ bg: isCollapsed ? "#e3c757" : "#fff8ec" }}
-            className={apercuMono.className}
+          <Tooltip
+            label="SETTINGS"
+            placement="right"
+            isDisabled={!isCollapsed}
+            bg="#111827"
+            color="white"
             fontSize="10px"
             fontWeight="600"
             letterSpacing="1.5px"
-            onClick={(e) => e.preventDefault()}
-            justifyContent={isCollapsed ? "center" : "flex-start"}
-            color="#6b6280"
+            fontFamily={apercuMono.style.fontFamily}
+            borderRadius="md"
+            hasArrow
+            arrowSize={8}
+            px={3}
+            py={2}
           >
-            <Box ml={isCollapsed ? 0 : 4} mr={isCollapsed ? 0 : 6}>
-              <Cog8ToothIcon width={18} color="#9ca3af" />
-            </Box>
-            {!isCollapsed && "SETTINGS"}
-          </Link>
+            <Link
+              href="#"
+              py={2}
+              px={4}
+              width={isCollapsed ? "70px" : "200px"}
+              display="flex"
+              alignItems="center"
+              _hover={{ bg: isCollapsed ? "#e3c757" : "#fff8ec" }}
+              className={apercuMono.className}
+              fontSize="10px"
+              fontWeight="600"
+              letterSpacing="1.5px"
+              onClick={(e) => e.preventDefault()}
+              justifyContent={isCollapsed ? "center" : "flex-start"}
+              color="#6b6280"
+            >
+              <Box ml={isCollapsed ? 0 : 4} mr={isCollapsed ? 0 : 6}>
+                <Cog8ToothIcon width={18} color="#9ca3af" />
+              </Box>
+              {!isCollapsed && "SETTINGS"}
+            </Link>
+          </Tooltip>
 
-          <Link
-            href="#"
-            py={2}
-            px={4}
-            width={isCollapsed ? "70px" : "200px"}
-            display="flex"
-            alignItems="center"
-            _hover={{ bg: isCollapsed ? "#e3c757" : "#fff8ec" }}
-            className={apercuMono.className}
+          <Tooltip
+            label="SIGN OUT"
+            placement="right"
+            isDisabled={!isCollapsed}
+            bg="#111827"
+            color="white"
             fontSize="10px"
             fontWeight="600"
             letterSpacing="1.5px"
-            onClick={(e) => e.preventDefault()}
-            justifyContent={isCollapsed ? "center" : "flex-start"}
-            color="#6b6280"
+            fontFamily={apercuMono.style.fontFamily}
+            borderRadius="md"
+            hasArrow
+            arrowSize={8}
+            px={3}
+            py={2}
           >
-            <Box ml={isCollapsed ? 0 : 4} mr={isCollapsed ? 0 : 6}>
-              <ArrowRightOnRectangleIcon width={18} color="#9ca3af" />
-            </Box>
-            {!isCollapsed && "SIGN OUT"}
-          </Link>
+            <Link
+              href="#"
+              py={2}
+              px={4}
+              width={isCollapsed ? "70px" : "200px"}
+              display="flex"
+              alignItems="center"
+              _hover={{ bg: isCollapsed ? "#e3c757" : "#fff8ec" }}
+              className={apercuMono.className}
+              fontSize="10px"
+              fontWeight="600"
+              letterSpacing="1.5px"
+              onClick={(e) => e.preventDefault()}
+              justifyContent={isCollapsed ? "center" : "flex-start"}
+              color="#6b6280"
+            >
+              <Box ml={isCollapsed ? 0 : 4} mr={isCollapsed ? 0 : 6}>
+                <ArrowRightOnRectangleIcon width={18} color="#9ca3af" />
+              </Box>
+              {!isCollapsed && "SIGN OUT"}
+            </Link>
+          </Tooltip>
         </VStack>
       </Box>
     </Box>
