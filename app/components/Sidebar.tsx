@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, VStack, Divider, Spacer } from "@chakra-ui/react";
+import { Box, VStack, Divider } from "@chakra-ui/react";
 import { Link } from "@chakra-ui/next-js";
 import Image from "next/image";
 import { apercuMono } from "../fonts";
@@ -16,7 +16,7 @@ import {
   ArrowLeftCircleIcon,
   ArrowRightCircleIcon,
 } from "@heroicons/react/24/outline";
-import { useState } from "react";
+import { useSidebar } from "./SidebarContext";
 
 type NavItem = {
   name: string;
@@ -37,11 +37,7 @@ const navItems: NavItem[] = [
 ];
 
 export function Sidebar() {
-  const [isCollapsed, setIsCollapsed] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsCollapsed(!isCollapsed);
-  };
+  const { isCollapsed, toggleSidebar } = useSidebar();
 
   return (
     <Box
