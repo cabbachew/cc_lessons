@@ -101,21 +101,38 @@ export function Sidebar() {
         fontWeight="600"
         letterSpacing="1.5px"
         onClick={(e) => e.preventDefault()}
-        justifyContent={isCollapsed ? "center" : "flex-start"}
+        position="relative"
         color={item.isActive ? "inherit" : "#6b6280"}
         bg={
           item.isActive ? (isCollapsed ? "#e3c757" : "#fff8ec") : "transparent"
         }
         transition="background-color 0.3s ease"
+        height="48px"
       >
-        <Box flex="none" ml={isCollapsed ? 0 : 4} mr={isCollapsed ? 0 : 6}>
+        {/* Icon centered at 35px (half of collapsed width) */}
+        <Box
+          position="absolute"
+          left="35px"
+          transform="translateX(-50%)"
+          top="50%"
+          marginTop="-9px"
+        >
           {item.icon}
         </Box>
-        {!isCollapsed && (
-          <Box whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
-            {item.name}
-          </Box>
-        )}
+
+        {/* Text that appears when expanded */}
+        <Box
+          position="absolute"
+          left="70px"
+          opacity={isCollapsed ? 0 : 1}
+          visibility={isCollapsed ? "hidden" : "visible"}
+          transition="opacity 0.3s ease, visibility 0.3s ease"
+          whiteSpace="nowrap"
+          top="50%"
+          transform="translateY(-50%)"
+        >
+          {item.name}
+        </Box>
       </Link>
     </Tooltip>
   );
@@ -144,10 +161,20 @@ export function Sidebar() {
           display="flex"
           justifyContent="center"
           alignItems="center"
-          height="90px"
-          minHeight="90px"
+          height="120px"
+          minHeight="120px"
+          position="relative"
+          overflow="hidden"
         >
-          {isCollapsed ? (
+          {/* Small logo - always present but opacity controlled by sidebar state */}
+          <Box
+            position="absolute"
+            opacity={isCollapsed ? 1 : 0}
+            transition="opacity 0.2s ease"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
             <Image
               src="/wordmark_black_short.webp"
               alt="CC Lessons Short Wordmark"
@@ -157,7 +184,17 @@ export function Sidebar() {
               priority
               className="my-auto"
             />
-          ) : (
+          </Box>
+
+          {/* Large logo - always present but opacity controlled by sidebar state */}
+          <Box
+            position="absolute"
+            opacity={isCollapsed ? 0 : 1}
+            transition="opacity 0.2s ease"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
             <Image
               src="/wordmark_black.webp"
               alt="CC Lessons Wordmark"
@@ -167,12 +204,12 @@ export function Sidebar() {
               priority
               className="my-auto"
             />
-          )}
+          </Box>
         </Box>
 
         {/* Top navigation items - scrollable */}
         <Box flex="1" overflowY="auto">
-          <VStack spacing={0} align="stretch" width="100%" mt={8}>
+          <VStack spacing={0} align="stretch" width="100%">
             {navItems.map(renderNavItem)}
           </VStack>
         </Box>
@@ -214,8 +251,9 @@ export function Sidebar() {
           height="200px"
           minHeight="200px"
           bg={isCollapsed ? "#fde68a" : "white"}
-          borderTop={isCollapsed ? "2px" : "1px"}
+          borderTop="2px"
           borderColor={isCollapsed ? "white" : "gray.200"}
+          transition="background-color 0.3s ease, border-color 0.3s ease"
         >
           {bottomNavItems.map(renderNavItem)}
         </VStack>
