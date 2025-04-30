@@ -126,7 +126,8 @@ export function Sidebar() {
       h="100vh"
       w={isCollapsed ? "70px" : "200px"}
       bg={isCollapsed ? "#fde68a" : "white"}
-      borderRight="2px"
+      borderRightWidth="3px"
+      borderRightStyle="solid"
       borderColor={isCollapsed ? "white" : "gray.200"}
       position="fixed"
       left={0}
@@ -139,7 +140,7 @@ export function Sidebar() {
       <Box display="flex" flexDirection="column" height="100%">
         {/* Logo section */}
         <Box
-          py={6}
+          py={10}
           display="flex"
           justifyContent="center"
           alignItems="center"
@@ -154,15 +155,17 @@ export function Sidebar() {
               height={25}
               style={{ width: "auto", height: "auto" }}
               priority
+              className="my-auto"
             />
           ) : (
             <Image
               src="/wordmark_black.webp"
               alt="CC Lessons Wordmark"
-              width={80}
-              height={20}
+              width={65}
+              height={16}
               style={{ width: "auto", height: "auto" }}
               priority
+              className="my-auto"
             />
           )}
         </Box>
@@ -186,7 +189,7 @@ export function Sidebar() {
             width="24px"
             height="24px"
             borderRadius="full"
-            bg="white"
+            bg={isCollapsed ? "white" : "gray.200"}
             display="flex"
             alignItems="center"
             justifyContent="center"
@@ -197,7 +200,7 @@ export function Sidebar() {
             {isCollapsed ? (
               <ArrowRightCircleIcon width={22} color="#111827" />
             ) : (
-              <ArrowLeftCircleIcon width={22} color="#111827" />
+              <ArrowLeftCircleIcon width={22} color="gray.200" />
             )}
           </Box>
         </Box>
@@ -211,7 +214,7 @@ export function Sidebar() {
           height="200px"
           minHeight="200px"
           bg={isCollapsed ? "#fde68a" : "white"}
-          borderTop="2px"
+          borderTop={isCollapsed ? "2px" : "1px"}
           borderColor={isCollapsed ? "white" : "gray.200"}
         >
           {bottomNavItems.map(renderNavItem)}
