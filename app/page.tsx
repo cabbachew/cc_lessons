@@ -337,7 +337,7 @@ export default function Home() {
                       whiteSpace="nowrap"
                       display="inline-block"
                       as="a"
-                      href="/engagement"
+                      // href="/engagement"
                     >
                       View Lesson
                     </Box>
@@ -469,7 +469,7 @@ export default function Home() {
                       whiteSpace="nowrap"
                       display="inline-block"
                       as="a"
-                      href="/engagement"
+                      // href="/engagement"
                     >
                       View Lesson
                     </Box>
