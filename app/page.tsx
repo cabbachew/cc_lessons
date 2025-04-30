@@ -204,6 +204,8 @@ export default function Home() {
                       width={{ base: "full", lg: "auto" }}
                       whiteSpace="nowrap"
                       display="inline-block"
+                      as="a"
+                      href="/engagement"
                     >
                       View Lesson
                     </Box>

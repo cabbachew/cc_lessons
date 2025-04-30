@@ -7,6 +7,7 @@ import {
   ReactNode,
   useEffect,
 } from "react";
+import { usePathname } from "next/navigation";
 
 type SidebarContextType = {
   isCollapsed: boolean;
@@ -16,7 +17,11 @@ type SidebarContextType = {
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 
 export function SidebarProvider({ children }: { children: ReactNode }) {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+
+  // Initialize collapsed state based on current path
+  const [isCollapsed, setIsCollapsed] = useState(!isHomePage);
   const [hasAutoCollapsed, setHasAutoCollapsed] = useState(false);
 
   // Check window width directly instead of using useBreakpointValue
