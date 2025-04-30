@@ -14,6 +14,7 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
+  Tooltip,
 } from "@chakra-ui/react";
 import { PageLayout } from "../components/PageLayout";
 import { apercu, apercuMono, inter } from "../fonts";
@@ -25,7 +26,6 @@ import {
   TrophyIcon,
   FolderPlusIcon,
   ClockIcon,
-  ArrowTurnDownRightIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -136,7 +136,20 @@ export default function EngagementPage() {
                 >
                   <Flex alignItems="center">
                     <Box display={{ base: "block", lg: "none" }}>
-                      <InformationCircleIcon width={16} height={16} />
+                      <Tooltip
+                        label="OVERVIEW"
+                        placement="top"
+                        hasArrow
+                        bg="#111827"
+                        color="white"
+                        fontSize="10px"
+                        fontWeight="600"
+                        letterSpacing="1.5px"
+                        fontFamily={apercuMono.style.fontFamily}
+                        isDisabled={false}
+                      >
+                        <InformationCircleIcon width={16} height={16} />
+                      </Tooltip>
                     </Box>
                     <Text display={{ base: "none", lg: "block" }}>
                       OVERVIEW
@@ -169,7 +182,20 @@ export default function EngagementPage() {
                 >
                   <Flex alignItems="center">
                     <Box display={{ base: "block", lg: "none" }}>
-                      <MapIcon width={16} height={16} />
+                      <Tooltip
+                        label="LEARNING PLAN"
+                        placement="top"
+                        hasArrow
+                        bg="#111827"
+                        color="white"
+                        fontSize="10px"
+                        fontWeight="600"
+                        letterSpacing="1.5px"
+                        fontFamily={apercuMono.style.fontFamily}
+                        isDisabled={false}
+                      >
+                        <MapIcon width={16} height={16} />
+                      </Tooltip>
                     </Box>
                     <Text display={{ base: "none", lg: "block" }}>
                       LEARNING PLAN
@@ -202,7 +228,20 @@ export default function EngagementPage() {
                 >
                   <Flex alignItems="center">
                     <Box display={{ base: "block", lg: "none" }}>
-                      <TrophyIcon width={16} height={16} />
+                      <Tooltip
+                        label="MILESTONES"
+                        placement="top"
+                        hasArrow
+                        bg="#111827"
+                        color="white"
+                        fontSize="10px"
+                        fontWeight="600"
+                        letterSpacing="1.5px"
+                        fontFamily={apercuMono.style.fontFamily}
+                        isDisabled={false}
+                      >
+                        <TrophyIcon width={16} height={16} />
+                      </Tooltip>
                     </Box>
                     <Text display={{ base: "none", lg: "block" }}>
                       MILESTONES
@@ -235,7 +274,20 @@ export default function EngagementPage() {
                 >
                   <Flex alignItems="center">
                     <Box display={{ base: "block", lg: "none" }}>
-                      <FolderPlusIcon width={16} height={16} />
+                      <Tooltip
+                        label="ARTIFACTS"
+                        placement="top"
+                        hasArrow
+                        bg="#111827"
+                        color="white"
+                        fontSize="10px"
+                        fontWeight="600"
+                        letterSpacing="1.5px"
+                        fontFamily={apercuMono.style.fontFamily}
+                        isDisabled={false}
+                      >
+                        <FolderPlusIcon width={16} height={16} />
+                      </Tooltip>
                     </Box>
                     <Text display={{ base: "none", lg: "block" }}>
                       ARTIFACTS
@@ -268,7 +320,20 @@ export default function EngagementPage() {
                 >
                   <Flex alignItems="center">
                     <Box display={{ base: "block", lg: "none" }}>
-                      <ClockIcon width={16} height={16} />
+                      <Tooltip
+                        label="HISTORY"
+                        placement="top"
+                        hasArrow
+                        bg="#111827"
+                        color="white"
+                        fontSize="10px"
+                        fontWeight="600"
+                        letterSpacing="1.5px"
+                        fontFamily={apercuMono.style.fontFamily}
+                        isDisabled={false}
+                      >
+                        <ClockIcon width={16} height={16} />
+                      </Tooltip>
                     </Box>
                     <Text display={{ base: "none", lg: "block" }}>HISTORY</Text>
                   </Flex>
@@ -277,136 +342,256 @@ export default function EngagementPage() {
               <TabPanels>
                 <TabPanel p={4}></TabPanel>
                 <TabPanel p={4}>
-                  <Box
-                    width="100%"
-                    borderRadius="none"
-                    borderWidth="1px"
-                    borderColor="gray.200"
-                    p={4}
-                  >
-                    <Text
-                      className={apercu.className}
-                      fontSize="md"
-                      fontWeight="bold"
-                      color="#111827"
-                      mb={2}
+                  <Box width="100%" borderRadius="none" p={4}>
+                    <Flex
+                      direction={{ base: "column", lg: "row" }}
+                      gap={{ base: 4, lg: 8 }}
                     >
-                      Learning Goals
-                    </Text>
-                    <Text
-                      className={inter.className}
-                      fontSize="sm"
-                      color="#4B5563"
-                      mb={4}
-                    >
-                      Develop practical skills in digital content creation while
-                      fostering intellectual curiosity and reducing passive
-                      screen time through engaging project-based learning.
-                    </Text>
+                      <Box flex={{ lg: "1" }}>
+                        <Text
+                          className={apercu.className}
+                          fontSize="md"
+                          fontWeight="bold"
+                          color="#111827"
+                          mb={2}
+                        >
+                          Learning Goals
+                        </Text>
+                        <Text
+                          className={inter.className}
+                          fontSize="m"
+                          color="#4B5563"
+                        >
+                          Develop practical skills in digital content creation
+                          while fostering intellectual curiosity and reducing
+                          passive screen time through engaging project-based
+                          learning.
+                        </Text>
+                      </Box>
 
-                    <Accordion allowToggle mt={4}>
-                      <AccordionItem
-                        border="0"
-                        borderBottom="1px"
-                        borderColor="gray.100"
-                        pb={1}
-                        mb={1}
-                      >
-                        <h2>
-                          <AccordionButton
-                            py={1.5}
-                            px={0}
-                            _hover={{ bg: "transparent" }}
+                      <Box flex={{ lg: "1" }}>
+                        <Accordion allowToggle>
+                          <AccordionItem
+                            border="0"
+                            borderBottom="1px"
+                            borderColor="gray.100"
+                            pb={1}
+                            mb={1}
                           >
-                            <ArrowTurnDownRightIcon
-                              width={12}
-                              height={12}
-                              color="#6b7280"
-                            />
-                            <Box
-                              as="span"
-                              flex="1"
-                              textAlign="left"
-                              fontWeight="normal"
-                              fontSize="xs"
-                              className={inter.className}
-                              _hover={{ textDecoration: "underline" }}
-                              ml={2}
-                            >
-                              Technical Development
-                            </Box>
-                            <AccordionIcon color="#6b7280" />
-                          </AccordionButton>
-                        </h2>
-                        <AccordionPanel pb={2} px={0} pl={6}></AccordionPanel>
-                      </AccordionItem>
+                            <h2>
+                              <AccordionButton
+                                py={1.5}
+                                px={0}
+                                _hover={{ bg: "transparent" }}
+                              >
+                                <Box
+                                  as="span"
+                                  flex="1"
+                                  textAlign="left"
+                                  fontWeight="medium"
+                                  fontSize="sm"
+                                  className={apercuMono.className}
+                                  _hover={{ textDecoration: "underline" }}
+                                >
+                                  TECHNICAL DEVELOPMENT
+                                </Box>
+                                <AccordionIcon color="#6b7280" />
+                              </AccordionButton>
+                            </h2>
+                            <AccordionPanel pb={2} px={0} pl={2}>
+                              <Box
+                                className={inter.className}
+                                fontSize="sm"
+                                color="#4B5563"
+                              >
+                                <Box display="flex" mb={2}>
+                                  <Text as="span" mr={2}>
+                                    -
+                                  </Text>
+                                  <Text as="span">
+                                    Create a structured content platform (blog,
+                                    podcast, or multimedia project) focusing on
+                                    child psychology and education
+                                  </Text>
+                                </Box>
+                                <Box display="flex" mb={2}>
+                                  <Text as="span" mr={2}>
+                                    -
+                                  </Text>
+                                  <Text as="span">
+                                    Develop and refine interviewing skills for
+                                    engaging with experts and sharing diverse
+                                    perspectives
+                                  </Text>
+                                </Box>
+                                <Box display="flex" mb={2}>
+                                  <Text as="span" mr={2}>
+                                    -
+                                  </Text>
+                                  <Text as="span">
+                                    Build a portfolio of written and visual
+                                    content that demonstrates communication
+                                    abilities
+                                  </Text>
+                                </Box>
+                                <Box display="flex" mb={2}>
+                                  <Text as="span" mr={2}>
+                                    -
+                                  </Text>
+                                  <Text as="span">
+                                    Learn basic design and content organization
+                                    principles to effectively present
+                                    information
+                                  </Text>
+                                </Box>
+                              </Box>
+                            </AccordionPanel>
+                          </AccordionItem>
 
-                      <AccordionItem
-                        border="0"
-                        borderBottom="1px"
-                        borderColor="gray.100"
-                        pb={1}
-                        mb={1}
-                      >
-                        <h2>
-                          <AccordionButton
-                            py={1.5}
-                            px={0}
-                            _hover={{ bg: "transparent" }}
+                          <AccordionItem
+                            border="0"
+                            borderBottom="1px"
+                            borderColor="gray.100"
+                            pb={1}
+                            mb={1}
                           >
-                            <ArrowTurnDownRightIcon
-                              width={12}
-                              height={12}
-                              color="#6b7280"
-                            />
-                            <Box
-                              as="span"
-                              flex="1"
-                              textAlign="left"
-                              fontWeight="normal"
-                              fontSize="xs"
-                              className={inter.className}
-                              _hover={{ textDecoration: "underline" }}
-                              ml={2}
-                            >
-                              Project Creation
-                            </Box>
-                            <AccordionIcon color="#6b7280" />
-                          </AccordionButton>
-                        </h2>
-                        <AccordionPanel pb={2} px={0} pl={6}></AccordionPanel>
-                      </AccordionItem>
+                            <h2>
+                              <AccordionButton
+                                py={1.5}
+                                px={0}
+                                _hover={{ bg: "transparent" }}
+                              >
+                                <Box
+                                  as="span"
+                                  flex="1"
+                                  textAlign="left"
+                                  fontWeight="medium"
+                                  fontSize="sm"
+                                  className={apercuMono.className}
+                                  _hover={{ textDecoration: "underline" }}
+                                >
+                                  PROJECT CREATION
+                                </Box>
+                                <AccordionIcon color="#6b7280" />
+                              </AccordionButton>
+                            </h2>
+                            <AccordionPanel pb={2} px={0} pl={2}>
+                              <Box
+                                className={inter.className}
+                                fontSize="sm"
+                                color="#4B5563"
+                              >
+                                <Box display="flex" mb={2}>
+                                  <Text as="span" mr={2}>
+                                    -
+                                  </Text>
+                                  <Text as="span">
+                                    Establish effective systems for managing
+                                    project timelines and deadlines
+                                  </Text>
+                                </Box>
+                                <Box display="flex" mb={2}>
+                                  <Text as="span" mr={2}>
+                                    -
+                                  </Text>
+                                  <Text as="span">
+                                    Develop consistent workflow patterns for
+                                    content creation and academic work
+                                  </Text>
+                                </Box>
+                                <Box display="flex" mb={2}>
+                                  <Text as="span" mr={2}>
+                                    -
+                                  </Text>
+                                  <Text as="span">
+                                    Implement strategies to maintain focus and
+                                    reduce procrastination
+                                  </Text>
+                                </Box>
+                                <Box display="flex" mb={2}>
+                                  <Text as="span" mr={2}>
+                                    -
+                                  </Text>
+                                  <Text as="span">
+                                    Create documentation practices that support
+                                    long-term project development
+                                  </Text>
+                                </Box>
+                              </Box>
+                            </AccordionPanel>
+                          </AccordionItem>
 
-                      <AccordionItem border="0">
-                        <h2>
-                          <AccordionButton
-                            py={1.5}
-                            px={0}
-                            _hover={{ bg: "transparent" }}
-                          >
-                            <ArrowTurnDownRightIcon
-                              width={12}
-                              height={12}
-                              color="#6b7280"
-                            />
-                            <Box
-                              as="span"
-                              flex="1"
-                              textAlign="left"
-                              fontWeight="normal"
-                              fontSize="xs"
-                              className={inter.className}
-                              _hover={{ textDecoration: "underline" }}
-                              ml={2}
-                            >
-                              Physics & Engineering Exploration
-                            </Box>
-                            <AccordionIcon color="#6b7280" />
-                          </AccordionButton>
-                        </h2>
-                        <AccordionPanel pb={2} px={0} pl={6}></AccordionPanel>
-                      </AccordionItem>
-                    </Accordion>
+                          <AccordionItem border="0">
+                            <h2>
+                              <AccordionButton
+                                py={1.5}
+                                px={0}
+                                _hover={{ bg: "transparent" }}
+                              >
+                                <Box
+                                  as="span"
+                                  flex="1"
+                                  textAlign="left"
+                                  fontWeight="medium"
+                                  fontSize="sm"
+                                  className={apercuMono.className}
+                                  _hover={{ textDecoration: "underline" }}
+                                >
+                                  PHYSICS &amp; ENGINEERING EXPLORATION
+                                </Box>
+                                <AccordionIcon color="#6b7280" />
+                              </AccordionButton>
+                            </h2>
+                            <AccordionPanel pb={2} px={0} pl={2}>
+                              <Box
+                                className={inter.className}
+                                fontSize="sm"
+                                color="#4B5563"
+                              >
+                                <Box display="flex" mb={2}>
+                                  <Text as="span" mr={2}>
+                                    -
+                                  </Text>
+                                  <Text as="span">
+                                    Research psychology programs and related
+                                    fields at potential colleges
+                                  </Text>
+                                </Box>
+                                <Box display="flex" mb={2}>
+                                  <Text as="span" mr={2}>
+                                    -
+                                  </Text>
+                                  <Text as="span">
+                                    Connect with professionals in child
+                                    psychology and education for insights and
+                                    mentorship
+                                  </Text>
+                                </Box>
+                                <Box display="flex" mb={2}>
+                                  <Text as="span" mr={2}>
+                                    -
+                                  </Text>
+                                  <Text as="span">
+                                    Identify internship opportunities related to
+                                    psychology and education for future summers
+                                  </Text>
+                                </Box>
+                                <Box display="flex" mb={2}>
+                                  <Text as="span" mr={2}>
+                                    -
+                                  </Text>
+                                  <Text as="span">
+                                    Develop a cohesive narrative that connects
+                                    academic interests, extracurriculars, and
+                                    future goals
+                                  </Text>
+                                </Box>
+                              </Box>
+                            </AccordionPanel>
+                          </AccordionItem>
+                        </Accordion>
+                      </Box>
+                    </Flex>
                   </Box>
                 </TabPanel>
                 <TabPanel p={4}></TabPanel>
