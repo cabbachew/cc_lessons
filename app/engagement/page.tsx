@@ -9,9 +9,14 @@ import {
   Tab,
   TabPanels,
   TabPanel,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
 } from "@chakra-ui/react";
 import { PageLayout } from "../components/PageLayout";
-import { apercu, apercuMono } from "../fonts";
+import { apercu, apercuMono, inter } from "../fonts";
 import { BreakpointBadge } from "../components/BreakpointBadge";
 import {
   ChevronLeftIcon,
@@ -20,6 +25,7 @@ import {
   TrophyIcon,
   FolderPlusIcon,
   ClockIcon,
+  ArrowTurnDownRightIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -106,12 +112,12 @@ export default function EngagementPage() {
               >
                 <Tab
                   className={apercuMono.className}
-                  fontSize={{ base: "10px", md: "xs" }}
+                  fontSize={{ base: "xs", md: "xs" }}
                   fontWeight="medium"
-                  letterSpacing={{ base: "0.5px", md: "1px" }}
-                  px={{ base: 1, sm: 2, md: 4 }}
-                  py={{ base: 2, md: 3 }}
-                  mr={{ base: 0.5, md: 2 }}
+                  letterSpacing={{ base: "1px", md: "1px" }}
+                  px={{ base: 4, sm: 4, md: 4 }}
+                  py={{ base: 3, sm: 3, md: 3 }}
+                  mr={{ base: 2, sm: 2, md: 2 }}
                   color="#6b7280"
                   position="relative"
                   _selected={{
@@ -139,12 +145,12 @@ export default function EngagementPage() {
                 </Tab>
                 <Tab
                   className={apercuMono.className}
-                  fontSize={{ base: "10px", md: "xs" }}
+                  fontSize={{ base: "xs", md: "xs" }}
                   fontWeight="medium"
-                  letterSpacing={{ base: "0.5px", md: "1px" }}
-                  px={{ base: 1, sm: 2, md: 4 }}
-                  py={{ base: 2, md: 3 }}
-                  mr={{ base: 0.5, md: 2 }}
+                  letterSpacing={{ base: "1px", md: "1px" }}
+                  px={{ base: 4, sm: 4, md: 4 }}
+                  py={{ base: 3, sm: 3, md: 3 }}
+                  mr={{ base: 2, sm: 2, md: 2 }}
                   color="#6b7280"
                   position="relative"
                   _selected={{
@@ -172,12 +178,12 @@ export default function EngagementPage() {
                 </Tab>
                 <Tab
                   className={apercuMono.className}
-                  fontSize={{ base: "10px", md: "xs" }}
+                  fontSize={{ base: "xs", md: "xs" }}
                   fontWeight="medium"
-                  letterSpacing={{ base: "0.5px", md: "1px" }}
-                  px={{ base: 1, sm: 2, md: 4 }}
-                  py={{ base: 2, md: 3 }}
-                  mr={{ base: 0.5, md: 2 }}
+                  letterSpacing={{ base: "1px", md: "1px" }}
+                  px={{ base: 4, sm: 4, md: 4 }}
+                  py={{ base: 3, sm: 3, md: 3 }}
+                  mr={{ base: 2, sm: 2, md: 2 }}
                   color="#6b7280"
                   position="relative"
                   _selected={{
@@ -205,12 +211,12 @@ export default function EngagementPage() {
                 </Tab>
                 <Tab
                   className={apercuMono.className}
-                  fontSize={{ base: "10px", md: "xs" }}
+                  fontSize={{ base: "xs", md: "xs" }}
                   fontWeight="medium"
-                  letterSpacing={{ base: "0.5px", md: "1px" }}
-                  px={{ base: 1, sm: 2, md: 4 }}
-                  py={{ base: 2, md: 3 }}
-                  mr={{ base: 0.5, md: 2 }}
+                  letterSpacing={{ base: "1px", md: "1px" }}
+                  px={{ base: 4, sm: 4, md: 4 }}
+                  py={{ base: 3, sm: 3, md: 3 }}
+                  mr={{ base: 2, sm: 2, md: 2 }}
                   color="#6b7280"
                   position="relative"
                   _selected={{
@@ -238,12 +244,12 @@ export default function EngagementPage() {
                 </Tab>
                 <Tab
                   className={apercuMono.className}
-                  fontSize={{ base: "10px", md: "xs" }}
+                  fontSize={{ base: "xs", md: "xs" }}
                   fontWeight="medium"
-                  letterSpacing={{ base: "0.5px", md: "1px" }}
-                  px={{ base: 1, sm: 2, md: 4 }}
-                  py={{ base: 2, md: 3 }}
-                  mr={{ base: 0.5, md: 2 }}
+                  letterSpacing={{ base: "1px", md: "1px" }}
+                  px={{ base: 4, sm: 4, md: 4 }}
+                  py={{ base: 3, sm: 3, md: 3 }}
+                  mr={{ base: 2, sm: 2, md: 2 }}
                   color="#6b7280"
                   position="relative"
                   _selected={{
@@ -270,8 +276,139 @@ export default function EngagementPage() {
               </TabList>
               <TabPanels>
                 <TabPanel p={4}></TabPanel>
-                <TabPanel p={4}></TabPanel>
-                <TabPanel p={4}></TabPanel>
+                <TabPanel p={4}>
+                  <Box
+                    width="100%"
+                    borderRadius="none"
+                    borderWidth="1px"
+                    borderColor="gray.200"
+                    p={4}
+                  >
+                    <Text
+                      className={apercu.className}
+                      fontSize="md"
+                      fontWeight="bold"
+                      color="#111827"
+                      mb={2}
+                    >
+                      Learning Goals
+                    </Text>
+                    <Text
+                      className={inter.className}
+                      fontSize="sm"
+                      color="#4B5563"
+                      mb={4}
+                    >
+                      Develop practical skills in digital content creation while
+                      fostering intellectual curiosity and reducing passive
+                      screen time through engaging project-based learning.
+                    </Text>
+
+                    <Accordion allowToggle mt={4}>
+                      <AccordionItem
+                        border="0"
+                        borderBottom="1px"
+                        borderColor="gray.100"
+                        pb={1}
+                        mb={1}
+                      >
+                        <h2>
+                          <AccordionButton
+                            py={1.5}
+                            px={0}
+                            _hover={{ bg: "transparent" }}
+                          >
+                            <ArrowTurnDownRightIcon
+                              width={12}
+                              height={12}
+                              color="#6b7280"
+                            />
+                            <Box
+                              as="span"
+                              flex="1"
+                              textAlign="left"
+                              fontWeight="normal"
+                              fontSize="xs"
+                              className={inter.className}
+                              _hover={{ textDecoration: "underline" }}
+                              ml={2}
+                            >
+                              Technical Development
+                            </Box>
+                            <AccordionIcon color="#6b7280" />
+                          </AccordionButton>
+                        </h2>
+                        <AccordionPanel pb={2} px={0} pl={6}></AccordionPanel>
+                      </AccordionItem>
+
+                      <AccordionItem
+                        border="0"
+                        borderBottom="1px"
+                        borderColor="gray.100"
+                        pb={1}
+                        mb={1}
+                      >
+                        <h2>
+                          <AccordionButton
+                            py={1.5}
+                            px={0}
+                            _hover={{ bg: "transparent" }}
+                          >
+                            <ArrowTurnDownRightIcon
+                              width={12}
+                              height={12}
+                              color="#6b7280"
+                            />
+                            <Box
+                              as="span"
+                              flex="1"
+                              textAlign="left"
+                              fontWeight="normal"
+                              fontSize="xs"
+                              className={inter.className}
+                              _hover={{ textDecoration: "underline" }}
+                              ml={2}
+                            >
+                              Project Creation
+                            </Box>
+                            <AccordionIcon color="#6b7280" />
+                          </AccordionButton>
+                        </h2>
+                        <AccordionPanel pb={2} px={0} pl={6}></AccordionPanel>
+                      </AccordionItem>
+
+                      <AccordionItem border="0">
+                        <h2>
+                          <AccordionButton
+                            py={1.5}
+                            px={0}
+                            _hover={{ bg: "transparent" }}
+                          >
+                            <ArrowTurnDownRightIcon
+                              width={12}
+                              height={12}
+                              color="#6b7280"
+                            />
+                            <Box
+                              as="span"
+                              flex="1"
+                              textAlign="left"
+                              fontWeight="normal"
+                              fontSize="xs"
+                              className={inter.className}
+                              _hover={{ textDecoration: "underline" }}
+                              ml={2}
+                            >
+                              Physics & Engineering Exploration
+                            </Box>
+                            <AccordionIcon color="#6b7280" />
+                          </AccordionButton>
+                        </h2>
+                        <AccordionPanel pb={2} px={0} pl={6}></AccordionPanel>
+                      </AccordionItem>
+                    </Accordion>
+                  </Box>
+                </TabPanel>
                 <TabPanel p={4}></TabPanel>
                 <TabPanel p={4}></TabPanel>
               </TabPanels>
