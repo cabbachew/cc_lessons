@@ -22,10 +22,22 @@ import {
   ClockIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
 export default function EngagementPage() {
+  const searchParams = useSearchParams();
   const [tabIndex, setTabIndex] = useState(0);
+
+  useEffect(() => {
+    const tab = searchParams.get("tab");
+    if (tab) {
+      const tabNumber = parseInt(tab);
+      if (!isNaN(tabNumber) && tabNumber >= 0 && tabNumber <= 4) {
+        setTabIndex(tabNumber);
+      }
+    }
+  }, [searchParams]);
 
   const handleTabsChange = (index: number) => {
     setTabIndex(index);
