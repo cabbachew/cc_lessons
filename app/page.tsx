@@ -71,7 +71,14 @@ export default function Home() {
           </Text>
         </Box>
 
-        <Grid templateColumns="1fr 1fr" gap={6} mt={8}>
+        <Grid
+          templateColumns={{
+            base: "1fr",
+            md: "1fr 1fr",
+          }}
+          gap={6}
+          mt={8}
+        >
           <GridItem>
             <Box mb={2}>
               <Text
@@ -97,8 +104,8 @@ export default function Home() {
             >
               <CardBody p={2.5}>
                 <Flex
-                  direction={{ base: "column", xl: "row" }}
-                  alignItems={{ base: "stretch", xl: "center" }}
+                  direction={{ base: "column", lg: "row" }}
+                  alignItems={{ base: "stretch", lg: "center" }}
                   justifyContent="space-between"
                 >
                   <Flex alignItems="flex-start" width="full">
@@ -158,7 +165,7 @@ export default function Home() {
                       <Text
                         className={apercuMono.className}
                         fontSize="10px"
-                        letterSpacing="0.5px"
+                        letterSpacing="1px"
                         color="#f87171"
                         display="flex"
                         alignItems="center"
@@ -169,29 +176,19 @@ export default function Home() {
                         textOverflow="ellipsis"
                         maxWidth="100%"
                       >
-                        STARTS IN 2 HOURS
-                        <Box
-                          as="span"
-                          width="2px"
-                          height="2px"
-                          borderRadius="full"
-                          bg="#f87171"
-                          display="inline-block"
-                          mx={1}
-                        />
-                        30 MINUTES
+                        STARTS IN 2H : 30M
                       </Text>
                     </VStack>
                   </Flex>
                   <Flex
                     alignItems="center"
-                    width={{ base: "full", xl: "auto" }}
+                    width={{ base: "full", lg: "auto" }}
                   >
                     <Box
                       px={4}
                       py={2}
-                      mx={{ base: 0, xl: 1 }}
-                      mt={{ base: 4, xl: 0 }}
+                      mx={{ base: 0, lg: 1 }}
+                      mt={{ base: 4, lg: 0 }}
                       bg="white"
                       borderRadius="none"
                       color="#4b5563"
@@ -204,7 +201,7 @@ export default function Home() {
                       _hover={{ bg: "#ecfdf5" }}
                       transition="all 0.2s"
                       textAlign="center"
-                      width={{ base: "full", xl: "auto" }}
+                      width={{ base: "full", lg: "auto" }}
                       whiteSpace="nowrap"
                       display="inline-block"
                     >
@@ -216,8 +213,8 @@ export default function Home() {
                       borderRadius="none"
                       cursor="pointer"
                       _hover={{ bg: "gray.50" }}
-                      ml={{ base: 2, xl: 1 }}
-                      mt={{ base: 4, xl: 0 }}
+                      ml={{ base: 2, lg: 1 }}
+                      mt={{ base: 4, lg: 0 }}
                     >
                       <EllipsisVerticalIcon width={20} color="#6b7280" />
                     </Center>
@@ -252,8 +249,8 @@ export default function Home() {
             >
               <CardBody p={2.5}>
                 <Flex
-                  direction={{ base: "column", xl: "row" }}
-                  alignItems={{ base: "stretch", xl: "center" }}
+                  direction={{ base: "column", lg: "row" }}
+                  alignItems={{ base: "stretch", lg: "center" }}
                   justifyContent="space-between"
                 >
                   <Flex alignItems="flex-start" width="full">
@@ -295,7 +292,7 @@ export default function Home() {
                       <Text
                         className={apercuMono.className}
                         fontSize="10px"
-                        letterSpacing="0.5px"
+                        letterSpacing="1px"
                         color="#f87171"
                         display="flex"
                         alignItems="center"
@@ -306,25 +303,15 @@ export default function Home() {
                         textOverflow="ellipsis"
                         maxWidth="100%"
                       >
-                        DUE ON MAY 1, 2025
-                        <Box
-                          as="span"
-                          width="2px"
-                          height="2px"
-                          borderRadius="full"
-                          bg="#f87171"
-                          display="inline-block"
-                          mx={1}
-                        />
-                        12:00 AM PDT
+                        DUE MAY 1, 2025 • 12:00 AM PDT
                       </Text>
                     </VStack>
                   </Flex>
                   <Box
                     px={4}
                     py={2}
-                    mx={{ base: 0, xl: 2 }}
-                    mt={{ base: 4, xl: 0 }}
+                    mx={{ base: 0, lg: 1 }}
+                    mt={{ base: 4, lg: 0 }}
                     bg="white"
                     borderRadius="none"
                     color="#4b5563"
@@ -337,7 +324,7 @@ export default function Home() {
                     _hover={{ bg: "#ecfdf5" }}
                     transition="all 0.2s"
                     textAlign="center"
-                    width={{ base: "full", xl: "auto" }}
+                    width={{ base: "full", lg: "auto" }}
                   >
                     Complete
                   </Box>
