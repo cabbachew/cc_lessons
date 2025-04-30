@@ -89,7 +89,7 @@ export function Sidebar() {
       py={2}
     >
       <Link
-        href="#"
+        href={item.href}
         py={4}
         px={4}
         width="100%"
@@ -100,7 +100,6 @@ export function Sidebar() {
         fontSize="10px"
         fontWeight="600"
         letterSpacing="1.5px"
-        onClick={(e) => e.preventDefault()}
         position="relative"
         color={item.isActive ? "inherit" : "#6b6280"}
         bg={
