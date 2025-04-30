@@ -50,7 +50,7 @@ export default function EngagementPage() {
             </Flex>
           </Link>
 
-          <Flex alignItems="center" mb={4}>
+          <Flex alignItems="center" mb={3}>
             <Heading
               as="h1"
               className={apercu.className}
@@ -79,7 +79,7 @@ export default function EngagementPage() {
             }}
           >
             <Tabs
-              mt={6}
+              mt={2}
               index={tabIndex}
               onChange={handleTabsChange}
               variant="unstyled"
