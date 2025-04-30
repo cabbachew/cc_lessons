@@ -13,7 +13,14 @@ import {
 import { PageLayout } from "../components/PageLayout";
 import { apercu, apercuMono } from "../fonts";
 import { BreakpointBadge } from "../components/BreakpointBadge";
-import { ChevronLeftIcon } from "@heroicons/react/24/outline";
+import {
+  ChevronLeftIcon,
+  InformationCircleIcon,
+  MapIcon,
+  TrophyIcon,
+  FolderPlusIcon,
+  ClockIcon,
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -69,15 +76,7 @@ export default function EngagementPage() {
             </Heading>
           </Flex>
 
-          <Box
-            overflowX="auto"
-            sx={{
-              "&::-webkit-scrollbar": {
-                display: "none",
-              },
-              scrollbarWidth: "none",
-            }}
-          >
+          <Box overflowX="hidden">
             <Tabs
               mt={2}
               index={tabIndex}
@@ -85,20 +84,22 @@ export default function EngagementPage() {
               variant="unstyled"
               colorScheme="yellow"
               size="sm"
+              width="100%"
             >
               <TabList
                 borderBottomWidth="1px"
                 borderColor="gray.200"
-                minW="max-content"
+                width="100%"
+                flexWrap="wrap"
               >
                 <Tab
                   className={apercuMono.className}
                   fontSize={{ base: "10px", md: "xs" }}
                   fontWeight="medium"
-                  letterSpacing="1px"
-                  px={{ base: 2, sm: 3, md: 4 }}
-                  py={3}
-                  mr={{ base: 1, md: 2 }}
+                  letterSpacing={{ base: "0.5px", md: "1px" }}
+                  px={{ base: 1, sm: 2, md: 4 }}
+                  py={{ base: 2, md: 3 }}
+                  mr={{ base: 0.5, md: 2 }}
                   color="#6b7280"
                   position="relative"
                   _selected={{
@@ -115,16 +116,23 @@ export default function EngagementPage() {
                     },
                   }}
                 >
-                  OVERVIEW
+                  <Flex alignItems="center">
+                    <Box display={{ base: "block", lg: "none" }}>
+                      <InformationCircleIcon width={16} height={16} />
+                    </Box>
+                    <Text display={{ base: "none", lg: "block" }}>
+                      OVERVIEW
+                    </Text>
+                  </Flex>
                 </Tab>
                 <Tab
                   className={apercuMono.className}
                   fontSize={{ base: "10px", md: "xs" }}
                   fontWeight="medium"
-                  letterSpacing="1px"
-                  px={{ base: 2, sm: 3, md: 4 }}
-                  py={3}
-                  mr={{ base: 1, md: 2 }}
+                  letterSpacing={{ base: "0.5px", md: "1px" }}
+                  px={{ base: 1, sm: 2, md: 4 }}
+                  py={{ base: 2, md: 3 }}
+                  mr={{ base: 0.5, md: 2 }}
                   color="#6b7280"
                   position="relative"
                   _selected={{
@@ -141,16 +149,23 @@ export default function EngagementPage() {
                     },
                   }}
                 >
-                  LEARNING PLAN
+                  <Flex alignItems="center">
+                    <Box display={{ base: "block", lg: "none" }}>
+                      <MapIcon width={16} height={16} />
+                    </Box>
+                    <Text display={{ base: "none", lg: "block" }}>
+                      LEARNING PLAN
+                    </Text>
+                  </Flex>
                 </Tab>
                 <Tab
                   className={apercuMono.className}
                   fontSize={{ base: "10px", md: "xs" }}
                   fontWeight="medium"
-                  letterSpacing="1px"
-                  px={{ base: 2, sm: 3, md: 4 }}
-                  py={3}
-                  mr={{ base: 1, md: 2 }}
+                  letterSpacing={{ base: "0.5px", md: "1px" }}
+                  px={{ base: 1, sm: 2, md: 4 }}
+                  py={{ base: 2, md: 3 }}
+                  mr={{ base: 0.5, md: 2 }}
                   color="#6b7280"
                   position="relative"
                   _selected={{
@@ -167,16 +182,23 @@ export default function EngagementPage() {
                     },
                   }}
                 >
-                  MILESTONES
+                  <Flex alignItems="center">
+                    <Box display={{ base: "block", lg: "none" }}>
+                      <TrophyIcon width={16} height={16} />
+                    </Box>
+                    <Text display={{ base: "none", lg: "block" }}>
+                      MILESTONES
+                    </Text>
+                  </Flex>
                 </Tab>
                 <Tab
                   className={apercuMono.className}
                   fontSize={{ base: "10px", md: "xs" }}
                   fontWeight="medium"
-                  letterSpacing="1px"
-                  px={{ base: 2, sm: 3, md: 4 }}
-                  py={3}
-                  mr={{ base: 1, md: 2 }}
+                  letterSpacing={{ base: "0.5px", md: "1px" }}
+                  px={{ base: 1, sm: 2, md: 4 }}
+                  py={{ base: 2, md: 3 }}
+                  mr={{ base: 0.5, md: 2 }}
                   color="#6b7280"
                   position="relative"
                   _selected={{
@@ -193,15 +215,23 @@ export default function EngagementPage() {
                     },
                   }}
                 >
-                  ARTIFACTS
+                  <Flex alignItems="center">
+                    <Box display={{ base: "block", lg: "none" }}>
+                      <FolderPlusIcon width={16} height={16} />
+                    </Box>
+                    <Text display={{ base: "none", lg: "block" }}>
+                      ARTIFACTS
+                    </Text>
+                  </Flex>
                 </Tab>
                 <Tab
                   className={apercuMono.className}
                   fontSize={{ base: "10px", md: "xs" }}
                   fontWeight="medium"
-                  letterSpacing="1px"
-                  px={{ base: 2, sm: 3, md: 4 }}
-                  py={3}
+                  letterSpacing={{ base: "0.5px", md: "1px" }}
+                  px={{ base: 1, sm: 2, md: 4 }}
+                  py={{ base: 2, md: 3 }}
+                  mr={{ base: 0.5, md: 2 }}
                   color="#6b7280"
                   position="relative"
                   _selected={{
@@ -218,7 +248,12 @@ export default function EngagementPage() {
                     },
                   }}
                 >
-                  HISTORY
+                  <Flex alignItems="center">
+                    <Box display={{ base: "block", lg: "none" }}>
+                      <ClockIcon width={16} height={16} />
+                    </Box>
+                    <Text display={{ base: "none", lg: "block" }}>HISTORY</Text>
+                  </Flex>
                 </Tab>
               </TabList>
               <TabPanels>
