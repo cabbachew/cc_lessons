@@ -97,8 +97,8 @@ export default function Home() {
               width="100%"
               borderRadius="none"
               mt={2}
-              borderWidth="1px"
-              borderColor="gray.200"
+              borderWidth="2px"
+              borderColor="#34d399"
               shadow="md"
               boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
             >
@@ -177,6 +177,270 @@ export default function Home() {
                         maxWidth="100%"
                       >
                         STARTS IN 2H : 30M
+                      </Text>
+                    </VStack>
+                  </Flex>
+                  <Flex
+                    alignItems="center"
+                    width={{ base: "full", lg: "auto" }}
+                  >
+                    <Box
+                      px={4}
+                      py={2}
+                      mx={{ base: 0, lg: 1 }}
+                      mt={{ base: 4, lg: 0 }}
+                      bg="white"
+                      borderRadius="none"
+                      color="#4b5563"
+                      fontSize="13px"
+                      fontWeight="600"
+                      className={apercu.className}
+                      cursor="pointer"
+                      borderWidth="1px"
+                      borderColor="gray.200"
+                      _hover={{ bg: "#ecfdf5" }}
+                      transition="all 0.2s"
+                      textAlign="center"
+                      width={{ base: "full", lg: "auto" }}
+                      whiteSpace="nowrap"
+                      display="inline-block"
+                      as="a"
+                      href="/engagement"
+                    >
+                      View Lesson
+                    </Box>
+                    <Center
+                      width="32px"
+                      height="32px"
+                      borderRadius="none"
+                      cursor="pointer"
+                      _hover={{ bg: "gray.50" }}
+                      ml={{ base: 2, lg: 1 }}
+                      mt={{ base: 4, lg: 0 }}
+                    >
+                      <EllipsisVerticalIcon width={20} color="#6b7280" />
+                    </Center>
+                  </Flex>
+                </Flex>
+              </CardBody>
+            </Card>
+
+            <Card
+              width="100%"
+              borderRadius="none"
+              mt={4}
+              borderWidth="1px"
+              borderColor="gray.200"
+              shadow="md"
+              boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+            >
+              <CardBody p={2.5}>
+                <Flex
+                  direction={{ base: "column", lg: "row" }}
+                  alignItems={{ base: "stretch", lg: "center" }}
+                  justifyContent="space-between"
+                >
+                  <Flex alignItems="flex-start" width="full">
+                    <Center
+                      width="64px"
+                      height="64px"
+                      bg="gray.100"
+                      borderRadius="none"
+                      flexShrink={0}
+                    >
+                      <VStack spacing={0} justify="center">
+                        <Text
+                          className={apercuMono.className}
+                          fontSize="11px"
+                          letterSpacing="0.5px"
+                          color="#4b5563"
+                        >
+                          JUN
+                        </Text>
+                        <Text
+                          className={apercu.className}
+                          fontSize="28px"
+                          fontWeight="bold"
+                          color="#4b5563"
+                          lineHeight="1"
+                        >
+                          03
+                        </Text>
+                      </VStack>
+                    </Center>
+                    <VStack align="flex-start" spacing={0.5} ml={4}>
+                      <Text
+                        className={apercu.className}
+                        fontSize="16px"
+                        fontWeight="bold"
+                        letterSpacing="-0.02em"
+                        color="#111827"
+                        noOfLines={1}
+                        overflow="hidden"
+                        textOverflow="ellipsis"
+                        maxWidth="100%"
+                      >
+                        Quintin Leong&apos;s Home Improvement Passion Project
+                      </Text>
+                      <Text
+                        className={apercuMono.className}
+                        fontSize="11px"
+                        letterSpacing="0.5px"
+                        color="#6b7280"
+                        noOfLines={1}
+                        overflow="hidden"
+                        textOverflow="ellipsis"
+                        maxWidth="100%"
+                      >
+                        2:00 PM - 3:30 PM PDT
+                      </Text>
+                      <Text
+                        className={apercuMono.className}
+                        fontSize="10px"
+                        letterSpacing="1px"
+                        color="#6b7280"
+                        display="flex"
+                        alignItems="center"
+                        gap={1}
+                        fontWeight="600"
+                        noOfLines={1}
+                        overflow="hidden"
+                        textOverflow="ellipsis"
+                        maxWidth="100%"
+                      >
+                        STARTS IN 7 DAYS
+                      </Text>
+                    </VStack>
+                  </Flex>
+                  <Flex
+                    alignItems="center"
+                    width={{ base: "full", lg: "auto" }}
+                  >
+                    <Box
+                      px={4}
+                      py={2}
+                      mx={{ base: 0, lg: 1 }}
+                      mt={{ base: 4, lg: 0 }}
+                      bg="white"
+                      borderRadius="none"
+                      color="#4b5563"
+                      fontSize="13px"
+                      fontWeight="600"
+                      className={apercu.className}
+                      cursor="pointer"
+                      borderWidth="1px"
+                      borderColor="gray.200"
+                      _hover={{ bg: "#ecfdf5" }}
+                      transition="all 0.2s"
+                      textAlign="center"
+                      width={{ base: "full", lg: "auto" }}
+                      whiteSpace="nowrap"
+                      display="inline-block"
+                      as="a"
+                      href="/engagement"
+                    >
+                      View Lesson
+                    </Box>
+                    <Center
+                      width="32px"
+                      height="32px"
+                      borderRadius="none"
+                      cursor="pointer"
+                      _hover={{ bg: "gray.50" }}
+                      ml={{ base: 2, lg: 1 }}
+                      mt={{ base: 4, lg: 0 }}
+                    >
+                      <EllipsisVerticalIcon width={20} color="#6b7280" />
+                    </Center>
+                  </Flex>
+                </Flex>
+              </CardBody>
+            </Card>
+
+            <Card
+              width="100%"
+              borderRadius="none"
+              mt={4}
+              borderWidth="1px"
+              borderColor="gray.200"
+              shadow="md"
+              boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+            >
+              <CardBody p={2.5}>
+                <Flex
+                  direction={{ base: "column", lg: "row" }}
+                  alignItems={{ base: "stretch", lg: "center" }}
+                  justifyContent="space-between"
+                >
+                  <Flex alignItems="flex-start" width="full">
+                    <Center
+                      width="64px"
+                      height="64px"
+                      bg="gray.100"
+                      borderRadius="none"
+                      flexShrink={0}
+                    >
+                      <VStack spacing={0} justify="center">
+                        <Text
+                          className={apercuMono.className}
+                          fontSize="11px"
+                          letterSpacing="0.5px"
+                          color="#4b5563"
+                        >
+                          JUN
+                        </Text>
+                        <Text
+                          className={apercu.className}
+                          fontSize="28px"
+                          fontWeight="bold"
+                          color="#4b5563"
+                          lineHeight="1"
+                        >
+                          10
+                        </Text>
+                      </VStack>
+                    </Center>
+                    <VStack align="flex-start" spacing={0.5} ml={4}>
+                      <Text
+                        className={apercu.className}
+                        fontSize="16px"
+                        fontWeight="bold"
+                        letterSpacing="-0.02em"
+                        color="#111827"
+                        noOfLines={1}
+                        overflow="hidden"
+                        textOverflow="ellipsis"
+                        maxWidth="100%"
+                      >
+                        Quintin Leong&apos;s Home Improvement Passion Project
+                      </Text>
+                      <Text
+                        className={apercuMono.className}
+                        fontSize="11px"
+                        letterSpacing="0.5px"
+                        color="#6b7280"
+                        noOfLines={1}
+                        overflow="hidden"
+                        textOverflow="ellipsis"
+                        maxWidth="100%"
+                      >
+                        1:00 PM - 2:30 PM PDT
+                      </Text>
+                      <Text
+                        className={apercuMono.className}
+                        fontSize="10px"
+                        letterSpacing="1px"
+                        color="#6b7280"
+                        display="flex"
+                        alignItems="center"
+                        gap={1}
+                        fontWeight="600"
+                        noOfLines={1}
+                        overflow="hidden"
+                        textOverflow="ellipsis"
+                        maxWidth="100%"
+                      >
+                        STARTS IN 14 DAYS
                       </Text>
                     </VStack>
                   </Flex>
