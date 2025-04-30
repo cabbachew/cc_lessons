@@ -136,6 +136,10 @@ export default function Home() {
                         fontWeight="bold"
                         letterSpacing="-0.02em"
                         color="#111827"
+                        noOfLines={1}
+                        overflow="hidden"
+                        textOverflow="ellipsis"
+                        maxWidth="100%"
                       >
                         Quintin Leong&apos;s Home Improvement Passion Project
                       </Text>
@@ -144,6 +148,10 @@ export default function Home() {
                         fontSize="11px"
                         letterSpacing="0.5px"
                         color="#6b7280"
+                        noOfLines={1}
+                        overflow="hidden"
+                        textOverflow="ellipsis"
+                        maxWidth="100%"
                       >
                         3:30 PM - 4:30 PM PDT
                       </Text>
@@ -156,6 +164,10 @@ export default function Home() {
                         alignItems="center"
                         gap={1}
                         fontWeight="600"
+                        noOfLines={1}
+                        overflow="hidden"
+                        textOverflow="ellipsis"
+                        maxWidth="100%"
                       >
                         STARTS IN 2 HOURS
                         <Box
@@ -176,9 +188,9 @@ export default function Home() {
                     width={{ base: "full", xl: "auto" }}
                   >
                     <Box
-                      px={6}
+                      px={4}
                       py={2}
-                      mx={{ base: 0, xl: 2 }}
+                      mx={{ base: 0, xl: 1 }}
                       mt={{ base: 4, xl: 0 }}
                       bg="white"
                       borderRadius="none"
@@ -261,6 +273,10 @@ export default function Home() {
                         fontWeight="bold"
                         letterSpacing="-0.02em"
                         color="#111827"
+                        noOfLines={1}
+                        overflow="hidden"
+                        textOverflow="ellipsis"
+                        maxWidth="100%"
                       >
                         Submit attendance
                       </Text>
@@ -269,6 +285,10 @@ export default function Home() {
                         fontSize="11px"
                         letterSpacing="0.5px"
                         color="#6b7280"
+                        noOfLines={1}
+                        overflow="hidden"
+                        textOverflow="ellipsis"
+                        maxWidth="100%"
                       >
                         QUINTIN LEONG&apos;S HOME IMPROVEMENT PASSION PROJECT
                       </Text>
@@ -281,6 +301,10 @@ export default function Home() {
                         alignItems="center"
                         gap={1}
                         fontWeight="600"
+                        noOfLines={1}
+                        overflow="hidden"
+                        textOverflow="ellipsis"
+                        maxWidth="100%"
                       >
                         DUE ON MAY 1, 2025
                         <Box
@@ -297,7 +321,7 @@ export default function Home() {
                     </VStack>
                   </Flex>
                   <Box
-                    px={6}
+                    px={4}
                     py={2}
                     mx={{ base: 0, xl: 2 }}
                     mt={{ base: 4, xl: 0 }}
