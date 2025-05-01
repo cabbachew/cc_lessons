@@ -65,12 +65,33 @@ export default function EngagementPage() {
     }
   }, [searchParams]);
 
+  // Handle keyboard escape key press
+  useEffect(() => {
+    const handleEscapeKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && isCardExpanded) {
+        setIsCardExpanded(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleEscapeKey);
+    return () => {
+      document.removeEventListener("keydown", handleEscapeKey);
+    };
+  }, [isCardExpanded]);
+
   const handleTabsChange = (index: number) => {
     setTabIndex(index);
   };
 
   const toggleCardExpansion = () => {
     setIsCardExpanded(!isCardExpanded);
+  };
+
+  const handleOverlayClick = (event: React.MouseEvent) => {
+    // Only close if clicking directly on the overlay, not its children
+    if (event.target === event.currentTarget) {
+      setIsCardExpanded(false);
+    }
   };
 
   return (
@@ -647,6 +668,7 @@ export default function EngagementPage() {
                             bottom="0"
                             bg="rgba(243, 244, 246, 0.8)"
                             zIndex={1}
+                            onClick={handleOverlayClick}
                           />
                           <Box
                             position="absolute"
