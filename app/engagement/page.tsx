@@ -745,10 +745,17 @@ export default function EngagementPage() {
                       {!isCardExpanded && (
                         <Box
                           borderWidth="2px"
-                          borderColor="#34d399"
+                          borderColor="gray.200"
                           borderRadius="none"
                           p={4}
                           bg="white"
+                          cursor="pointer"
+                          onClick={toggleCardExpansion}
+                          transition="all 0.2s"
+                          _hover={{
+                            borderColor: "#34d399",
+                            py: 5, // Increase vertical padding on hover
+                          }}
                         >
                           <Flex
                             justifyContent="space-between"
@@ -767,8 +774,6 @@ export default function EngagementPage() {
                               width={18}
                               height={18}
                               color="#6b7280"
-                              cursor="pointer"
-                              onClick={toggleCardExpansion}
                             />
                           </Flex>
                           <Text
