@@ -48,6 +48,23 @@ export default function EngagementPage() {
     }
   }, [searchParams]);
 
+  useEffect(() => {
+    const tab = searchParams.get("tab");
+    if (tab) {
+      const tabNumber = parseInt(tab);
+      if (!isNaN(tabNumber) && tabNumber >= 0 && tabNumber <= 4) {
+        setTabIndex(tabNumber);
+      }
+    }
+
+    // Check if coming from home page "view lesson" button
+    const source = searchParams.get("source");
+    if (source === "home_lesson") {
+      setIsCardExpanded(true);
+      setTabIndex(1); // Set to Learning Plan tab
+    }
+  }, [searchParams]);
+
   const handleTabsChange = (index: number) => {
     setTabIndex(index);
   };
@@ -639,8 +656,8 @@ export default function EngagementPage() {
                             bottom="0"
                             width="100%"
                             borderWidth="2px"
-                            borderColor="#111827"
-                            borderRadius="md"
+                            borderColor="#34d399"
+                            borderRadius="none"
                             p={4}
                             bg="white"
                             zIndex={2}
@@ -657,7 +674,7 @@ export default function EngagementPage() {
                                 fontWeight="bold"
                                 color="#111827"
                               >
-                                Section Title
+                                Next Lesson
                               </Text>
                               <ArrowsPointingInIcon
                                 width={18}
@@ -705,9 +722,9 @@ export default function EngagementPage() {
 
                       {!isCardExpanded && (
                         <Box
-                          borderWidth="1px"
-                          borderColor="gray.200"
-                          borderRadius="md"
+                          borderWidth="2px"
+                          borderColor="#34d399"
+                          borderRadius="none"
                           p={4}
                           bg="white"
                         >
@@ -722,7 +739,7 @@ export default function EngagementPage() {
                               fontWeight="bold"
                               color="#111827"
                             >
-                              Section Title
+                              Next Lesson
                             </Text>
                             <ArrowsPointingOutIcon
                               width={18}

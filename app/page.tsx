@@ -168,7 +168,7 @@ export default function Home() {
                       whiteSpace="nowrap"
                       display="inline-block"
                       as="a"
-                      href="/engagement?tab=1"
+                      href="/engagement?tab=1&source=home_lesson"
                     >
                       View Lesson
                     </Box>
