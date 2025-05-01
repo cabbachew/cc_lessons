@@ -30,11 +30,12 @@ import {
   ArrowsPointingInIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState, useEffect, useCallback } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 
 export default function EngagementPage() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const [tabIndex, setTabIndex] = useState(0);
   const [isCardExpanded, setIsCardExpanded] = useState(false);
 
@@ -58,18 +59,26 @@ export default function EngagementPage() {
     }
 
     // Check if coming from home page "view lesson" button
-    const source = searchParams.get("source");
-    if (source === "home_lesson") {
+    const lesson = searchParams.get("lesson");
+    if (lesson === "true") {
       setIsCardExpanded(true);
       setTabIndex(1); // Set to Learning Plan tab
     }
   }, [searchParams]);
+
+  // Helper function to remove lesson parameter from URL
+  const removeLessonParameter = useCallback(() => {
+    const url = new URL(window.location.href);
+    url.searchParams.delete("lesson");
+    router.replace(url.pathname + url.search, { scroll: false });
+  }, [router]);
 
   // Handle keyboard escape key press
   useEffect(() => {
     const handleEscapeKey = (event: KeyboardEvent) => {
       if (event.key === "Escape" && isCardExpanded) {
         setIsCardExpanded(false);
+        removeLessonParameter();
       }
     };
 
@@ -77,20 +86,27 @@ export default function EngagementPage() {
     return () => {
       document.removeEventListener("keydown", handleEscapeKey);
     };
-  }, [isCardExpanded]);
+  }, [isCardExpanded, removeLessonParameter]);
 
   const handleTabsChange = (index: number) => {
     setTabIndex(index);
   };
 
   const toggleCardExpansion = () => {
-    setIsCardExpanded(!isCardExpanded);
+    const newExpandedState = !isCardExpanded;
+    setIsCardExpanded(newExpandedState);
+
+    // Update URL when card is closed to remove lesson parameter
+    if (!newExpandedState) {
+      removeLessonParameter();
+    }
   };
 
   const handleOverlayClick = (event: React.MouseEvent) => {
     // Only close if clicking directly on the overlay, not its children
     if (event.target === event.currentTarget) {
       setIsCardExpanded(false);
+      removeLessonParameter();
     }
   };
 
