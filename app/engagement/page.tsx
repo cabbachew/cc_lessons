@@ -26,6 +26,8 @@ import {
   TrophyIcon,
   FolderPlusIcon,
   ClockIcon,
+  ArrowsPointingOutIcon,
+  ArrowsPointingInIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -34,6 +36,7 @@ import { useSearchParams } from "next/navigation";
 export default function EngagementPage() {
   const searchParams = useSearchParams();
   const [tabIndex, setTabIndex] = useState(0);
+  const [isCardExpanded, setIsCardExpanded] = useState(false);
 
   useEffect(() => {
     const tab = searchParams.get("tab");
@@ -49,11 +52,14 @@ export default function EngagementPage() {
     setTabIndex(index);
   };
 
+  const toggleCardExpansion = () => {
+    setIsCardExpanded(!isCardExpanded);
+  };
+
   return (
     <PageLayout>
       <Box position="relative">
         <BreakpointBadge />
-
         <Box bg="white">
           <Link href="/" style={{ textDecoration: "none" }}>
             <Flex
@@ -74,7 +80,6 @@ export default function EngagementPage() {
               </Text>
             </Flex>
           </Link>
-
           <Flex alignItems="center" mb={3}>
             <Heading
               as="h1"
@@ -93,7 +98,6 @@ export default function EngagementPage() {
               Quintin Leong&apos;s Home Improvement Passion Project
             </Heading>
           </Flex>
-
           <Box overflowX="hidden">
             <Tabs
               mt={2}
@@ -339,13 +343,19 @@ export default function EngagementPage() {
                   </Flex>
                 </Tab>
               </TabList>
-              <TabPanels>
+              <TabPanels position="relative">
                 <TabPanel p={4}></TabPanel>
-                <TabPanel p={4}>
-                  <Box width="100%" borderRadius="none" p={4}>
+                <TabPanel p={4} position="relative">
+                  <Box
+                    width="100%"
+                    borderRadius="none"
+                    position="relative"
+                    pt={4}
+                  >
                     <Flex
                       direction={{ base: "column", lg: "row" }}
                       gap={{ base: 4, lg: 8 }}
+                      display={isCardExpanded ? "none" : "flex"}
                     >
                       <Box flex={{ lg: "1" }}>
                         <Text
@@ -361,6 +371,7 @@ export default function EngagementPage() {
                           className={inter.className}
                           fontSize="m"
                           color="#4B5563"
+                          mb={4}
                         >
                           Develop practical skills in digital content creation
                           while fostering intellectual curiosity and reducing
@@ -592,6 +603,147 @@ export default function EngagementPage() {
                         </Accordion>
                       </Box>
                     </Flex>
+
+                    <Box
+                      mt={8}
+                      position="relative"
+                      height={isCardExpanded ? "calc(100vh - 200px)" : "auto"}
+                    >
+                      <Text
+                        className={apercu.className}
+                        fontSize="md"
+                        fontWeight="bold"
+                        color="#111827"
+                        mb={2}
+                        display={isCardExpanded ? "none" : "block"}
+                      >
+                        Learning Roadmap
+                      </Text>
+
+                      {isCardExpanded && (
+                        <>
+                          <Box
+                            position="fixed"
+                            top="0"
+                            left="0"
+                            right="0"
+                            bottom="0"
+                            bg="rgba(243, 244, 246, 0.8)"
+                            zIndex={1}
+                          />
+                          <Box
+                            position="absolute"
+                            top="-24px"
+                            left="0"
+                            right="0"
+                            bottom="0"
+                            width="100%"
+                            borderWidth="2px"
+                            borderColor="#111827"
+                            borderRadius="md"
+                            p={4}
+                            bg="white"
+                            zIndex={2}
+                            overflow="auto"
+                          >
+                            <Flex
+                              justifyContent="space-between"
+                              alignItems="center"
+                              mb={2}
+                            >
+                              <Text
+                                className={apercu.className}
+                                fontSize="sm"
+                                fontWeight="bold"
+                                color="#111827"
+                              >
+                                Section Title
+                              </Text>
+                              <ArrowsPointingInIcon
+                                width={18}
+                                height={18}
+                                color="#6b7280"
+                                cursor="pointer"
+                                onClick={toggleCardExpansion}
+                              />
+                            </Flex>
+                            <Text
+                              className={inter.className}
+                              fontSize="sm"
+                              color="#4B5563"
+                            >
+                              Content for the new section goes here. This card
+                              uses a light gray border without any drop shadow
+                              to maintain a clean, minimal design.
+                            </Text>
+
+                            <Box mt={4}>
+                              <Text
+                                className={inter.className}
+                                fontSize="sm"
+                                color="#4B5563"
+                                mb={3}
+                              >
+                                This is additional content that appears when the
+                                card is expanded. You can add more detailed
+                                information here that is only visible when the
+                                user clicks the expand icon.
+                              </Text>
+                              <Text
+                                className={inter.className}
+                                fontSize="sm"
+                                color="#4B5563"
+                              >
+                                The expanded card now takes up the entire tab
+                                panel space, properly contained within its
+                                boundaries.
+                              </Text>
+                            </Box>
+                          </Box>
+                        </>
+                      )}
+
+                      {!isCardExpanded && (
+                        <Box
+                          borderWidth="1px"
+                          borderColor="gray.200"
+                          borderRadius="md"
+                          p={4}
+                          bg="white"
+                        >
+                          <Flex
+                            justifyContent="space-between"
+                            alignItems="center"
+                            mb={2}
+                          >
+                            <Text
+                              className={apercu.className}
+                              fontSize="sm"
+                              fontWeight="bold"
+                              color="#111827"
+                            >
+                              Section Title
+                            </Text>
+                            <ArrowsPointingOutIcon
+                              width={18}
+                              height={18}
+                              color="#6b7280"
+                              cursor="pointer"
+                              onClick={toggleCardExpansion}
+                            />
+                          </Flex>
+                          <Text
+                            className={inter.className}
+                            fontSize="sm"
+                            color="#4B5563"
+                          >
+                            Content for the new section goes here. This card
+                            uses a light gray border without any drop shadow to
+                            maintain a clean, minimal design.
+                          </Text>
+                        </Box>
+                      )}
+                    </Box>
                   </Box>
                 </TabPanel>
                 <TabPanel p={4}></TabPanel>
