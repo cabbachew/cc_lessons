@@ -806,66 +806,68 @@ export default function EngagementPage() {
                     </Box>
 
                     {/* Two column layout */}
-                    <Box mt={8} p={0} borderRadius="none">
-                      <Flex
-                        direction={{ base: "column", md: "row" }}
-                        gap={{ base: 6, md: 8 }}
-                      >
-                        {/* Left column */}
-                        <Box
-                          flex="1"
-                          bg="white"
-                          p={6}
-                          borderWidth="1px"
-                          borderColor="gray.200"
+                    {!isCardExpanded && (
+                      <Box mt={8} p={0} borderRadius="none">
+                        <Flex
+                          direction={{ base: "column", md: "row" }}
+                          gap={{ base: 6, md: 8 }}
                         >
-                          <Text
-                            className={apercu.className}
-                            fontSize="md"
-                            fontWeight="bold"
-                            color="#111827"
-                            mb={3}
+                          {/* Left column */}
+                          <Box
+                            flex="1"
+                            bg="white"
+                            p={6}
+                            borderWidth="1px"
+                            borderColor="gray.200"
                           >
-                            Future Sessions
-                          </Text>
-                          <Text
-                            className={inter.className}
-                            fontSize="sm"
-                            color="#4B5563"
-                            mb={4}
-                          >
-                            Implement forward-looking timeline.
-                          </Text>
-                        </Box>
+                            <Text
+                              className={apercu.className}
+                              fontSize="md"
+                              fontWeight="bold"
+                              color="#111827"
+                              mb={3}
+                            >
+                              Future Sessions
+                            </Text>
+                            <Text
+                              className={inter.className}
+                              fontSize="sm"
+                              color="#4B5563"
+                              mb={4}
+                            >
+                              Implement forward-looking timeline.
+                            </Text>
+                          </Box>
 
-                        {/* Right column */}
-                        <Box
-                          flex="1"
-                          bg="white"
-                          p={6}
-                          borderWidth="1px"
-                          borderColor="gray.200"
-                        >
-                          <Text
-                            className={apercu.className}
-                            fontSize="md"
-                            fontWeight="bold"
-                            color="#111827"
-                            mb={3}
+                          {/* Right column */}
+                          <Box
+                            flex="1"
+                            bg="white"
+                            p={6}
+                            borderWidth="1px"
+                            borderColor="gray.200"
                           >
-                            Key Dates
-                          </Text>
-                          <Text
-                            className={inter.className}
-                            fontSize="sm"
-                            color="#4B5563"
-                            mb={4}
-                          >
-                            Tentative space to list key dates and deadlines.
-                          </Text>
-                        </Box>
-                      </Flex>
-                    </Box>
+                            <Text
+                              className={apercu.className}
+                              fontSize="md"
+                              fontWeight="bold"
+                              color="#111827"
+                              mb={3}
+                            >
+                              Key Dates
+                            </Text>
+                            <Text
+                              className={inter.className}
+                              fontSize="sm"
+                              color="#4B5563"
+                              mb={4}
+                            >
+                              Tentative space to list key dates and deadlines.
+                            </Text>
+                          </Box>
+                        </Flex>
+                      </Box>
+                    )}
                   </Box>
                 </TabPanel>
                 <TabPanel p={4}></TabPanel>
