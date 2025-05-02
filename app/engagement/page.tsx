@@ -17,6 +17,7 @@ import {
   Tooltip,
   Center,
   VStack,
+  Divider,
 } from "@chakra-ui/react";
 import { PageLayout } from "../components/PageLayout";
 import { apercu, apercuMono, inter } from "../fonts";
@@ -30,6 +31,7 @@ import {
   ClockIcon,
   ArrowsPointingOutIcon,
   ArrowsPointingInIcon,
+  MapPinIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
@@ -762,56 +764,105 @@ export default function EngagementPage() {
 
                       {!isCardExpanded && (
                         <Box
-                          borderWidth="2px"
-                          borderColor="gray.200"
-                          borderRadius="none"
-                          p={4}
+                          flex="1"
                           bg="white"
-                          cursor="pointer"
-                          onClick={toggleCardExpansion}
-                          transition="all 0.2s"
-                          shadow="md"
-                          boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
-                          _hover={{
-                            borderColor: "#34d399",
-                            py: 5, // Increase vertical padding on hover
-                          }}
+                          pt={4}
+                          // borderWidth="1px"
+                          // borderColor="gray.200"
+                          id="next-session-container"
                         >
-                          <Flex
-                            justifyContent="space-between"
-                            alignItems="center"
-                            mb={2}
-                          >
-                            <Text
-                              className={apercu.className}
-                              fontSize="sm"
-                              fontWeight="bold"
-                              color="#111827"
+                          <Flex>
+                            <Flex
+                              direction="column"
+                              width="24px"
+                              mr={3}
+                              alignItems="center"
                             >
-                              Next Lesson
-                            </Text>
-                            <ArrowsPointingOutIcon
-                              width={18}
-                              height={18}
-                              color="#6b7280"
-                            />
+                              <Box
+                                bg="transparent"
+                                height="24px"
+                                width="24px"
+                                display="flex"
+                                alignItems="center"
+                                justifyContent="center"
+                              >
+                                <MapPinIcon
+                                  width={16}
+                                  height={16}
+                                  color="#CBD5E0"
+                                />
+                              </Box>
+                              <Box
+                                flex="1"
+                                bg="transparent"
+                                width="8px"
+                                display="flex"
+                                alignItems="center"
+                                justifyContent="center"
+                              >
+                                <Divider
+                                  orientation="vertical"
+                                  height="100%"
+                                  borderColor="#CBD5E0"
+                                  borderWidth="1px"
+                                />
+                              </Box>
+                            </Flex>
+                            <Box
+                              id="next-session-card"
+                              flex="1"
+                              borderWidth="2px"
+                              borderColor="gray.200"
+                              borderRadius="none"
+                              p={4}
+                              bg="white"
+                              cursor="pointer"
+                              onClick={toggleCardExpansion}
+                              transition="all 0.2s"
+                              shadow="md"
+                              boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+                              _hover={{
+                                borderColor: "#34d399",
+                                py: 5,
+                              }}
+                            >
+                              <Flex
+                                justifyContent="space-between"
+                                alignItems="center"
+                                mb={2}
+                              >
+                                <Text
+                                  className={apercu.className}
+                                  fontSize="sm"
+                                  fontWeight="bold"
+                                  color="#111827"
+                                >
+                                  Next Lesson
+                                </Text>
+                                <ArrowsPointingOutIcon
+                                  width={18}
+                                  height={18}
+                                  color="#6b7280"
+                                />
+                              </Flex>
+                              <Text
+                                className={inter.className}
+                                fontSize="sm"
+                                color="#4B5563"
+                              >
+                                Content for the new section goes here. This card
+                                uses a light gray border without any drop shadow
+                                to maintain a clean, minimal design.
+                              </Text>
+                            </Box>
                           </Flex>
-                          <Text
-                            className={inter.className}
-                            fontSize="sm"
-                            color="#4B5563"
-                          >
-                            Content for the new section goes here. This card
-                            uses a light gray border without any drop shadow to
-                            maintain a clean, minimal design.
-                          </Text>
                         </Box>
                       )}
                     </Box>
 
                     {/* Two column layout */}
                     {!isCardExpanded && (
-                      <Box mt={8} p={0} borderRadius="none">
+                      <Box mt={4} p={0} borderRadius="none">
                         <Flex
                           direction={{ base: "column", md: "row" }}
                           gap={{ base: 6, md: 8 }}
@@ -820,222 +871,347 @@ export default function EngagementPage() {
                           <Box
                             flex="1"
                             bg="white"
-                            p={4}
-                            borderWidth="1px"
-                            borderColor="gray.200"
+                            // p={4}
+                            // borderWidth="1px"
+                            // borderColor="gray.200"
+                            id="future-sessions-container"
                           >
                             <Box>
-                              <Box
-                                width="100%"
-                                borderRadius="none"
-                                mb={4}
-                                borderWidth="1px"
-                                borderColor="gray.200"
-                                shadow="md"
-                                boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
-                                bg="white"
-                              >
-                                <Box p={2.5}>
-                                  <Flex
-                                    direction={{ base: "column", lg: "row" }}
-                                    alignItems={{
-                                      base: "stretch",
-                                      lg: "center",
-                                    }}
-                                    justifyContent="space-between"
+                              {/* First Card */}
+                              <Flex mb={4}>
+                                <Flex
+                                  direction="column"
+                                  width="24px"
+                                  mr={3}
+                                  alignItems="center"
+                                >
+                                  <Box
+                                    bg="transparent"
+                                    height="24px"
+                                    width="24px"
+                                    display="flex"
+                                    alignItems="center"
+                                    justifyContent="center"
                                   >
-                                    <Flex alignItems="flex-start" width="full">
-                                      <Center
-                                        width="64px"
-                                        height="64px"
-                                        bg="gray.100"
-                                        borderRadius="none"
-                                        flexShrink={0}
+                                    <MapPinIcon
+                                      width={16}
+                                      height={16}
+                                      color="#CBD5E0"
+                                    />
+                                  </Box>
+                                  <Box
+                                    flex="1"
+                                    bg="transparent"
+                                    width="8px"
+                                    display="flex"
+                                    alignItems="center"
+                                    justifyContent="center"
+                                  >
+                                    <Divider
+                                      orientation="vertical"
+                                      height="100%"
+                                      borderColor="#CBD5E0"
+                                      borderWidth="1px"
+                                    />
+                                  </Box>
+                                </Flex>
+                                <Box
+                                  flex="1"
+                                  borderRadius="none"
+                                  borderWidth="1px"
+                                  borderColor="gray.200"
+                                  shadow="md"
+                                  boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+                                  bg="white"
+                                >
+                                  <Box p={2.5}>
+                                    <Flex
+                                      direction={{ base: "column", lg: "row" }}
+                                      alignItems={{
+                                        base: "stretch",
+                                        lg: "center",
+                                      }}
+                                      justifyContent="space-between"
+                                    >
+                                      <Flex
+                                        alignItems="flex-start"
+                                        width="full"
                                       >
-                                        <VStack spacing={0} justify="center">
-                                          <Text
-                                            className={apercuMono.className}
-                                            fontSize="11px"
-                                            letterSpacing="0.5px"
-                                            color="#4b5563"
-                                          >
-                                            JUN
-                                          </Text>
+                                        <Center
+                                          width="64px"
+                                          height="64px"
+                                          bg="gray.100"
+                                          borderRadius="none"
+                                          flexShrink={0}
+                                        >
+                                          <VStack spacing={0} justify="center">
+                                            <Text
+                                              className={apercuMono.className}
+                                              fontSize="11px"
+                                              letterSpacing="0.5px"
+                                              color="#4b5563"
+                                            >
+                                              JUN
+                                            </Text>
+                                            <Text
+                                              className={apercu.className}
+                                              fontSize="28px"
+                                              fontWeight="bold"
+                                              color="#4b5563"
+                                              lineHeight="1"
+                                            >
+                                              03
+                                            </Text>
+                                          </VStack>
+                                        </Center>
+                                        <VStack
+                                          align="flex-start"
+                                          spacing={0.5}
+                                          ml={4}
+                                        >
                                           <Text
                                             className={apercu.className}
-                                            fontSize="28px"
+                                            fontSize="16px"
                                             fontWeight="bold"
-                                            color="#4b5563"
-                                            lineHeight="1"
+                                            letterSpacing="-0.02em"
+                                            color="#111827"
+                                            noOfLines={1}
+                                            overflow="hidden"
+                                            textOverflow="ellipsis"
+                                            maxWidth="100%"
                                           >
-                                            03
+                                            Session Title
                                           </Text>
                                         </VStack>
-                                      </Center>
-                                      <VStack
-                                        align="flex-start"
-                                        spacing={0.5}
-                                        ml={4}
-                                      >
-                                        <Text
-                                          className={apercu.className}
-                                          fontSize="16px"
-                                          fontWeight="bold"
-                                          letterSpacing="-0.02em"
-                                          color="#111827"
-                                          noOfLines={1}
-                                          overflow="hidden"
-                                          textOverflow="ellipsis"
-                                          maxWidth="100%"
-                                        >
-                                          Session Title
-                                        </Text>
-                                      </VStack>
+                                      </Flex>
                                     </Flex>
-                                  </Flex>
+                                  </Box>
                                 </Box>
-                              </Box>
+                              </Flex>
 
-                              <Box
-                                width="100%"
-                                borderRadius="none"
-                                mb={4}
-                                borderWidth="1px"
-                                borderColor="gray.200"
-                                shadow="md"
-                                boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
-                                bg="white"
-                              >
-                                <Box p={2.5}>
-                                  <Flex
-                                    direction={{ base: "column", lg: "row" }}
-                                    alignItems={{
-                                      base: "stretch",
-                                      lg: "center",
-                                    }}
-                                    justifyContent="space-between"
+                              {/* Second Card */}
+                              <Flex mb={4}>
+                                <Flex
+                                  direction="column"
+                                  width="24px"
+                                  mr={3}
+                                  alignItems="center"
+                                >
+                                  <Box
+                                    bg="transparent"
+                                    height="24px"
+                                    width="24px"
+                                    display="flex"
+                                    alignItems="center"
+                                    justifyContent="center"
                                   >
-                                    <Flex alignItems="flex-start" width="full">
-                                      <Center
-                                        width="64px"
-                                        height="64px"
-                                        bg="gray.100"
-                                        borderRadius="none"
-                                        flexShrink={0}
+                                    <MapPinIcon
+                                      width={16}
+                                      height={16}
+                                      color="#CBD5E0"
+                                    />
+                                  </Box>
+                                  <Box
+                                    flex="1"
+                                    bg="transparent"
+                                    width="8px"
+                                    display="flex"
+                                    alignItems="center"
+                                    justifyContent="center"
+                                  >
+                                    <Divider
+                                      orientation="vertical"
+                                      height="100%"
+                                      borderColor="#CBD5E0"
+                                      borderWidth="1px"
+                                    />
+                                  </Box>
+                                </Flex>
+                                <Box
+                                  flex="1"
+                                  borderRadius="none"
+                                  borderWidth="1px"
+                                  borderColor="gray.200"
+                                  shadow="md"
+                                  boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+                                  bg="white"
+                                >
+                                  <Box p={2.5}>
+                                    <Flex
+                                      direction={{ base: "column", lg: "row" }}
+                                      alignItems={{
+                                        base: "stretch",
+                                        lg: "center",
+                                      }}
+                                      justifyContent="space-between"
+                                    >
+                                      <Flex
+                                        alignItems="flex-start"
+                                        width="full"
                                       >
-                                        <VStack spacing={0} justify="center">
-                                          <Text
-                                            className={apercuMono.className}
-                                            fontSize="11px"
-                                            letterSpacing="0.5px"
-                                            color="#4b5563"
-                                          >
-                                            JUN
-                                          </Text>
+                                        <Center
+                                          width="64px"
+                                          height="64px"
+                                          bg="gray.100"
+                                          borderRadius="none"
+                                          flexShrink={0}
+                                        >
+                                          <VStack spacing={0} justify="center">
+                                            <Text
+                                              className={apercuMono.className}
+                                              fontSize="11px"
+                                              letterSpacing="0.5px"
+                                              color="#4b5563"
+                                            >
+                                              JUN
+                                            </Text>
+                                            <Text
+                                              className={apercu.className}
+                                              fontSize="28px"
+                                              fontWeight="bold"
+                                              color="#4b5563"
+                                              lineHeight="1"
+                                            >
+                                              10
+                                            </Text>
+                                          </VStack>
+                                        </Center>
+                                        <VStack
+                                          align="flex-start"
+                                          spacing={0.5}
+                                          ml={4}
+                                        >
                                           <Text
                                             className={apercu.className}
-                                            fontSize="28px"
+                                            fontSize="16px"
                                             fontWeight="bold"
-                                            color="#4b5563"
-                                            lineHeight="1"
+                                            letterSpacing="-0.02em"
+                                            color="#111827"
+                                            noOfLines={1}
+                                            overflow="hidden"
+                                            textOverflow="ellipsis"
+                                            maxWidth="100%"
                                           >
-                                            10
+                                            Session Title
                                           </Text>
                                         </VStack>
-                                      </Center>
-                                      <VStack
-                                        align="flex-start"
-                                        spacing={0.5}
-                                        ml={4}
-                                      >
-                                        <Text
-                                          className={apercu.className}
-                                          fontSize="16px"
-                                          fontWeight="bold"
-                                          letterSpacing="-0.02em"
-                                          color="#111827"
-                                          noOfLines={1}
-                                          overflow="hidden"
-                                          textOverflow="ellipsis"
-                                          maxWidth="100%"
-                                        >
-                                          Session Title
-                                        </Text>
-                                      </VStack>
+                                      </Flex>
                                     </Flex>
-                                  </Flex>
+                                  </Box>
                                 </Box>
-                              </Box>
+                              </Flex>
 
-                              <Box
-                                width="100%"
-                                borderRadius="none"
-                                borderWidth="1px"
-                                borderColor="gray.200"
-                                shadow="md"
-                                boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
-                                bg="white"
-                              >
-                                <Box p={2.5}>
-                                  <Flex
-                                    direction={{ base: "column", lg: "row" }}
-                                    alignItems={{
-                                      base: "stretch",
-                                      lg: "center",
-                                    }}
-                                    justifyContent="space-between"
+                              {/* Third Card */}
+                              <Flex>
+                                <Flex
+                                  direction="column"
+                                  width="24px"
+                                  mr={3}
+                                  alignItems="center"
+                                >
+                                  <Box
+                                    bg="transparent"
+                                    height="24px"
+                                    width="24px"
+                                    display="flex"
+                                    alignItems="center"
+                                    justifyContent="center"
                                   >
-                                    <Flex alignItems="flex-start" width="full">
-                                      <Center
-                                        width="64px"
-                                        height="64px"
-                                        bg="gray.100"
-                                        borderRadius="none"
-                                        flexShrink={0}
+                                    <MapPinIcon
+                                      width={16}
+                                      height={16}
+                                      color="#CBD5E0"
+                                    />
+                                  </Box>
+                                  <Box
+                                    flex="1"
+                                    bg="transparent"
+                                    width="8px"
+                                    display="flex"
+                                    alignItems="center"
+                                    justifyContent="center"
+                                  >
+                                    <Divider
+                                      orientation="vertical"
+                                      height="100%"
+                                      borderColor="#CBD5E0"
+                                      borderWidth="1px"
+                                    />
+                                  </Box>
+                                </Flex>
+                                <Box
+                                  flex="1"
+                                  borderRadius="none"
+                                  borderWidth="1px"
+                                  borderColor="gray.200"
+                                  shadow="md"
+                                  boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+                                  bg="white"
+                                >
+                                  <Box p={2.5}>
+                                    <Flex
+                                      direction={{ base: "column", lg: "row" }}
+                                      alignItems={{
+                                        base: "stretch",
+                                        lg: "center",
+                                      }}
+                                      justifyContent="space-between"
+                                    >
+                                      <Flex
+                                        alignItems="flex-start"
+                                        width="full"
                                       >
-                                        <VStack spacing={0} justify="center">
-                                          <Text
-                                            className={apercuMono.className}
-                                            fontSize="11px"
-                                            letterSpacing="0.5px"
-                                            color="#4b5563"
-                                          >
-                                            JUN
-                                          </Text>
+                                        <Center
+                                          width="64px"
+                                          height="64px"
+                                          bg="gray.100"
+                                          borderRadius="none"
+                                          flexShrink={0}
+                                        >
+                                          <VStack spacing={0} justify="center">
+                                            <Text
+                                              className={apercuMono.className}
+                                              fontSize="11px"
+                                              letterSpacing="0.5px"
+                                              color="#4b5563"
+                                            >
+                                              JUN
+                                            </Text>
+                                            <Text
+                                              className={apercu.className}
+                                              fontSize="28px"
+                                              fontWeight="bold"
+                                              color="#4b5563"
+                                              lineHeight="1"
+                                            >
+                                              17
+                                            </Text>
+                                          </VStack>
+                                        </Center>
+                                        <VStack
+                                          align="flex-start"
+                                          spacing={0.5}
+                                          ml={4}
+                                        >
                                           <Text
                                             className={apercu.className}
-                                            fontSize="28px"
+                                            fontSize="16px"
                                             fontWeight="bold"
-                                            color="#4b5563"
-                                            lineHeight="1"
+                                            letterSpacing="-0.02em"
+                                            color="#111827"
+                                            noOfLines={1}
+                                            overflow="hidden"
+                                            textOverflow="ellipsis"
+                                            maxWidth="100%"
                                           >
-                                            17
+                                            Session Title
                                           </Text>
                                         </VStack>
-                                      </Center>
-                                      <VStack
-                                        align="flex-start"
-                                        spacing={0.5}
-                                        ml={4}
-                                      >
-                                        <Text
-                                          className={apercu.className}
-                                          fontSize="16px"
-                                          fontWeight="bold"
-                                          letterSpacing="-0.02em"
-                                          color="#111827"
-                                          noOfLines={1}
-                                          overflow="hidden"
-                                          textOverflow="ellipsis"
-                                          maxWidth="100%"
-                                        >
-                                          Session Title
-                                        </Text>
-                                      </VStack>
+                                      </Flex>
                                     </Flex>
-                                  </Flex>
+                                  </Box>
                                 </Box>
-                              </Box>
+                              </Flex>
                             </Box>
                           </Box>
 
@@ -1043,7 +1219,8 @@ export default function EngagementPage() {
                           <Box
                             flex="1"
                             bg="white"
-                            p={6}
+                            mt={4}
+                            p={4}
                             // borderWidth="1px"
                             // borderColor="gray.200"
                           >
