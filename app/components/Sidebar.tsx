@@ -206,56 +206,65 @@ export function Sidebar() {
           </Box>
         </Box>
 
-        {/* Top navigation items - scrollable */}
-        <Box flex="1" overflowY="auto">
+        {/* Top navigation items */}
+        <Box flex="1">
           <VStack spacing={0} align="stretch" width="100%">
             {navItems.map(renderNavItem)}
           </VStack>
         </Box>
 
-        {/* Divider with toggle button */}
-        <Box position="relative" width="100%">
-          <Divider borderColor={isCollapsed ? "white" : "gray.200"} />
-
-          {/* Toggle button that overlays the border */}
-          <Box
-            position="absolute"
-            right="-12px"
-            top="-10px"
-            width="24px"
-            height="24px"
-            borderRadius="full"
-            bg={isCollapsed ? "white" : "gray.200"}
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            cursor="pointer"
-            onClick={toggleSidebar}
-            boxShadow="0 0 3px rgba(0,0,0,0.1)"
-          >
-            {isCollapsed ? (
-              <ArrowRightCircleIcon width={22} color="#111827" />
-            ) : (
-              <ArrowLeftCircleIcon width={22} color="gray.200" />
-            )}
-          </Box>
-        </Box>
-
-        {/* Bottom navigation items */}
-        <VStack
-          spacing={0}
-          align="stretch"
+        {/* Sticky bottom section that includes both the divider/toggle and bottom nav */}
+        <Box
+          position="sticky"
+          bottom={0}
           width="100%"
-          py={4}
-          height="200px"
-          minHeight="200px"
           bg={isCollapsed ? "#fde68a" : "white"}
-          borderTop="2px"
-          borderColor={isCollapsed ? "white" : "gray.200"}
-          transition="background-color 0.3s ease, border-color 0.3s ease"
+          transition="background-color 0.3s ease"
         >
-          {bottomNavItems.map(renderNavItem)}
-        </VStack>
+          {/* Divider with toggle button */}
+          <Box position="relative" width="100%">
+            <Divider borderColor={isCollapsed ? "white" : "gray.200"} />
+
+            {/* Toggle button that overlays the border */}
+            <Box
+              position="absolute"
+              right="-12px"
+              top="-10px"
+              width="24px"
+              height="24px"
+              borderRadius="full"
+              bg={isCollapsed ? "white" : "gray.200"}
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              cursor="pointer"
+              onClick={toggleSidebar}
+              boxShadow="0 0 3px rgba(0,0,0,0.1)"
+              zIndex={1}
+            >
+              {isCollapsed ? (
+                <ArrowRightCircleIcon width={22} color="#111827" />
+              ) : (
+                <ArrowLeftCircleIcon width={22} color="gray.200" />
+              )}
+            </Box>
+          </Box>
+
+          {/* Bottom navigation items */}
+          <VStack
+            spacing={0}
+            align="stretch"
+            width="100%"
+            py={4}
+            height="200px"
+            minHeight="200px"
+            borderTop="2px"
+            borderColor={isCollapsed ? "white" : "gray.200"}
+            transition="background-color 0.3s ease, border-color 0.3s ease"
+          >
+            {bottomNavItems.map(renderNavItem)}
+          </VStack>
+        </Box>
       </Box>
     </Box>
   );
