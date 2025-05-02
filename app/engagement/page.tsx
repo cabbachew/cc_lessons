@@ -15,6 +15,8 @@ import {
   AccordionPanel,
   AccordionIcon,
   Tooltip,
+  Center,
+  VStack,
 } from "@chakra-ui/react";
 import { PageLayout } from "../components/PageLayout";
 import { apercu, apercuMono, inter } from "../fonts";
@@ -768,6 +770,8 @@ export default function EngagementPage() {
                           cursor="pointer"
                           onClick={toggleCardExpansion}
                           transition="all 0.2s"
+                          shadow="md"
+                          boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
                           _hover={{
                             borderColor: "#34d399",
                             py: 5, // Increase vertical padding on hover
@@ -816,27 +820,223 @@ export default function EngagementPage() {
                           <Box
                             flex="1"
                             bg="white"
-                            p={6}
+                            p={4}
                             borderWidth="1px"
                             borderColor="gray.200"
                           >
-                            <Text
-                              className={apercu.className}
-                              fontSize="md"
-                              fontWeight="bold"
-                              color="#111827"
-                              mb={3}
-                            >
-                              Future Sessions
-                            </Text>
-                            <Text
-                              className={inter.className}
-                              fontSize="sm"
-                              color="#4B5563"
-                              mb={4}
-                            >
-                              Implement forward-looking timeline.
-                            </Text>
+                            <Box>
+                              <Box
+                                width="100%"
+                                borderRadius="none"
+                                mb={4}
+                                borderWidth="1px"
+                                borderColor="gray.200"
+                                shadow="md"
+                                boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+                                bg="white"
+                              >
+                                <Box p={2.5}>
+                                  <Flex
+                                    direction={{ base: "column", lg: "row" }}
+                                    alignItems={{
+                                      base: "stretch",
+                                      lg: "center",
+                                    }}
+                                    justifyContent="space-between"
+                                  >
+                                    <Flex alignItems="flex-start" width="full">
+                                      <Center
+                                        width="64px"
+                                        height="64px"
+                                        bg="gray.100"
+                                        borderRadius="none"
+                                        flexShrink={0}
+                                      >
+                                        <VStack spacing={0} justify="center">
+                                          <Text
+                                            className={apercuMono.className}
+                                            fontSize="11px"
+                                            letterSpacing="0.5px"
+                                            color="#4b5563"
+                                          >
+                                            JUN
+                                          </Text>
+                                          <Text
+                                            className={apercu.className}
+                                            fontSize="28px"
+                                            fontWeight="bold"
+                                            color="#4b5563"
+                                            lineHeight="1"
+                                          >
+                                            03
+                                          </Text>
+                                        </VStack>
+                                      </Center>
+                                      <VStack
+                                        align="flex-start"
+                                        spacing={0.5}
+                                        ml={4}
+                                      >
+                                        <Text
+                                          className={apercu.className}
+                                          fontSize="16px"
+                                          fontWeight="bold"
+                                          letterSpacing="-0.02em"
+                                          color="#111827"
+                                          noOfLines={1}
+                                          overflow="hidden"
+                                          textOverflow="ellipsis"
+                                          maxWidth="100%"
+                                        >
+                                          Session Title
+                                        </Text>
+                                      </VStack>
+                                    </Flex>
+                                  </Flex>
+                                </Box>
+                              </Box>
+
+                              <Box
+                                width="100%"
+                                borderRadius="none"
+                                mb={4}
+                                borderWidth="1px"
+                                borderColor="gray.200"
+                                shadow="md"
+                                boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+                                bg="white"
+                              >
+                                <Box p={2.5}>
+                                  <Flex
+                                    direction={{ base: "column", lg: "row" }}
+                                    alignItems={{
+                                      base: "stretch",
+                                      lg: "center",
+                                    }}
+                                    justifyContent="space-between"
+                                  >
+                                    <Flex alignItems="flex-start" width="full">
+                                      <Center
+                                        width="64px"
+                                        height="64px"
+                                        bg="gray.100"
+                                        borderRadius="none"
+                                        flexShrink={0}
+                                      >
+                                        <VStack spacing={0} justify="center">
+                                          <Text
+                                            className={apercuMono.className}
+                                            fontSize="11px"
+                                            letterSpacing="0.5px"
+                                            color="#4b5563"
+                                          >
+                                            JUN
+                                          </Text>
+                                          <Text
+                                            className={apercu.className}
+                                            fontSize="28px"
+                                            fontWeight="bold"
+                                            color="#4b5563"
+                                            lineHeight="1"
+                                          >
+                                            10
+                                          </Text>
+                                        </VStack>
+                                      </Center>
+                                      <VStack
+                                        align="flex-start"
+                                        spacing={0.5}
+                                        ml={4}
+                                      >
+                                        <Text
+                                          className={apercu.className}
+                                          fontSize="16px"
+                                          fontWeight="bold"
+                                          letterSpacing="-0.02em"
+                                          color="#111827"
+                                          noOfLines={1}
+                                          overflow="hidden"
+                                          textOverflow="ellipsis"
+                                          maxWidth="100%"
+                                        >
+                                          Session Title
+                                        </Text>
+                                      </VStack>
+                                    </Flex>
+                                  </Flex>
+                                </Box>
+                              </Box>
+
+                              <Box
+                                width="100%"
+                                borderRadius="none"
+                                borderWidth="1px"
+                                borderColor="gray.200"
+                                shadow="md"
+                                boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+                                bg="white"
+                              >
+                                <Box p={2.5}>
+                                  <Flex
+                                    direction={{ base: "column", lg: "row" }}
+                                    alignItems={{
+                                      base: "stretch",
+                                      lg: "center",
+                                    }}
+                                    justifyContent="space-between"
+                                  >
+                                    <Flex alignItems="flex-start" width="full">
+                                      <Center
+                                        width="64px"
+                                        height="64px"
+                                        bg="gray.100"
+                                        borderRadius="none"
+                                        flexShrink={0}
+                                      >
+                                        <VStack spacing={0} justify="center">
+                                          <Text
+                                            className={apercuMono.className}
+                                            fontSize="11px"
+                                            letterSpacing="0.5px"
+                                            color="#4b5563"
+                                          >
+                                            JUN
+                                          </Text>
+                                          <Text
+                                            className={apercu.className}
+                                            fontSize="28px"
+                                            fontWeight="bold"
+                                            color="#4b5563"
+                                            lineHeight="1"
+                                          >
+                                            17
+                                          </Text>
+                                        </VStack>
+                                      </Center>
+                                      <VStack
+                                        align="flex-start"
+                                        spacing={0.5}
+                                        ml={4}
+                                      >
+                                        <Text
+                                          className={apercu.className}
+                                          fontSize="16px"
+                                          fontWeight="bold"
+                                          letterSpacing="-0.02em"
+                                          color="#111827"
+                                          noOfLines={1}
+                                          overflow="hidden"
+                                          textOverflow="ellipsis"
+                                          maxWidth="100%"
+                                        >
+                                          Session Title
+                                        </Text>
+                                      </VStack>
+                                    </Flex>
+                                  </Flex>
+                                </Box>
+                              </Box>
+                            </Box>
                           </Box>
 
                           {/* Right column */}
