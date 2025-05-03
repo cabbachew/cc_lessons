@@ -756,6 +756,7 @@ export default function EngagementPage() {
                                     color="#6b7280"
                                     cursor="pointer"
                                     onClick={toggleCardExpansion}
+                                    style={{ alignSelf: "flex-start" }}
                                   />
                                 </Flex>
                               </Flex>
