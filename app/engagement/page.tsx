@@ -33,7 +33,9 @@ import {
   ArrowsPointingOutIcon,
   MapPinIcon,
   EllipsisVerticalIcon,
+  EnvelopeIcon,
 } from "@heroicons/react/24/outline";
+import { PhoneIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
@@ -403,7 +405,214 @@ export default function EngagementPage() {
                 </Tab>
               </TabList>
               <TabPanels position="relative">
-                <TabPanel p={4}></TabPanel>
+                <TabPanel p={4}>
+                  <Flex
+                    direction={{ base: "column", md: "row" }}
+                    gap={{ base: 6, md: 8 }}
+                    alignItems="flex-start"
+                  >
+                    {/* Left column: blank container for future use */}
+                    <Box width={{ base: "100%", md: "50%" }} />
+                    {/* Right column: contact info card and accordion */}
+                    <Box width={{ base: "100%", md: "50%" }}>
+                      {/* Contact Info Card on top */}
+                      <Box
+                        width="100%"
+                        bg="white"
+                        borderWidth="1px"
+                        borderColor="gray.200"
+                        borderRadius="none"
+                        shadow="md"
+                        boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+                        p={6}
+                        mb={8}
+                      >
+                        <Flex
+                          direction={{ base: "column", xl: "row" }}
+                          gap={{ base: 4, xl: 0 }}
+                          alignItems="stretch"
+                          height="100%"
+                        >
+                          {/* Guardian Info */}
+                          <Box flex="1" display="flex" flexDirection="column">
+                            <Text
+                              fontWeight="bold"
+                              fontSize="md"
+                              className={apercu.className}
+                              mb={1}
+                            >
+                              Guardian: James Hogerty
+                            </Text>
+                            <Flex alignItems="center" mb={1}>
+                              <Box as="span" mr={2} color="#6B7280">
+                                <EnvelopeIcon width={18} height={18} />
+                              </Box>
+                              <Text
+                                fontSize="sm"
+                                color="#6B7280"
+                                className={inter.className}
+                              >
+                                jhogerty@gmail.com
+                              </Text>
+                            </Flex>
+                            <Flex alignItems="center">
+                              <Box as="span" mr={2} color="#6B7280">
+                                <PhoneIcon width={18} height={18} />
+                              </Box>
+                              <Text
+                                fontSize="sm"
+                                color="#6B7280"
+                                className={inter.className}
+                              >
+                                (650) 650-6500
+                              </Text>
+                            </Flex>
+                          </Box>
+                          {/* Responsive Divider */}
+                          <Divider
+                            orientation="horizontal"
+                            display={{ base: "block", xl: "none" }}
+                            my={2}
+                          />
+                          <Divider
+                            orientation="vertical"
+                            display={{ base: "none", xl: "block" }}
+                            mx={4}
+                            alignSelf="stretch"
+                            height="auto"
+                          />
+                          {/* Student Info */}
+                          <Box flex="1" display="flex" flexDirection="column">
+                            <Text
+                              fontWeight="bold"
+                              fontSize="md"
+                              className={apercu.className}
+                              mb={1}
+                            >
+                              Student: Quintin Leong
+                            </Text>
+                            <Flex alignItems="center" mb={1}>
+                              <Box as="span" mr={2} color="#6B7280">
+                                <EnvelopeIcon width={18} height={18} />
+                              </Box>
+                              <Text
+                                fontSize="sm"
+                                color="#6B7280"
+                                className={inter.className}
+                              >
+                                quintinrocks@gmail.com
+                              </Text>
+                            </Flex>
+                            <Flex alignItems="center">
+                              <Box as="span" mr={2} color="#6B7280">
+                                <PhoneIcon width={18} height={18} />
+                              </Box>
+                              <Text
+                                fontSize="sm"
+                                color="#6B7280"
+                                className={inter.className}
+                              >
+                                N/A
+                              </Text>
+                            </Flex>
+                          </Box>
+                        </Flex>
+                      </Box>
+                      {/* Accordion below */}
+                      <Box width="100%">
+                        <Accordion allowToggle defaultIndex={[]}>
+                          <AccordionItem
+                            border="0"
+                            borderBottom="1px"
+                            borderColor="gray.100"
+                          >
+                            <h2>
+                              <AccordionButton
+                                py={2}
+                                px={0}
+                                _hover={{ bg: "transparent" }}
+                              >
+                                <Box
+                                  as="span"
+                                  flex="1"
+                                  textAlign="left"
+                                  fontWeight="bold"
+                                  fontSize="md"
+                                  className={apercu.className}
+                                >
+                                  Student Overview
+                                </Box>
+                                <AccordionIcon color="#6b7280" />
+                              </AccordionButton>
+                            </h2>
+                            <AccordionPanel pb={4} px={0} pl={2}>
+                              <Text
+                                className={inter.className}
+                                fontSize="sm"
+                                color="#4B5563"
+                                lineHeight="1.6"
+                              >
+                                Maya is a charismatic seventh grader at Avenues
+                                The World School SP who brings a uniquely global
+                                perspective from her experiences living in
+                                Shanghai, New York, and Mexico City. A natural
+                                connector with exceptional social skills, she
+                                thrives as a school ambassador and tour guide
+                                while showing strong interests in creative
+                                pursuits and business. Maya combines strong
+                                organizational skills with an outgoing
+                                personality, already demonstrating sophisticated
+                                thinking about business ethics and
+                                sustainability.
+                              </Text>
+                            </AccordionPanel>
+                          </AccordionItem>
+                          <AccordionItem border="0">
+                            <h2>
+                              <AccordionButton
+                                py={2}
+                                px={0}
+                                _hover={{ bg: "transparent" }}
+                              >
+                                <Box
+                                  as="span"
+                                  flex="1"
+                                  textAlign="left"
+                                  fontWeight="bold"
+                                  fontSize="md"
+                                  className={apercu.className}
+                                >
+                                  Engagement Overview
+                                </Box>
+                                <AccordionIcon color="#6b7280" />
+                              </AccordionButton>
+                            </h2>
+                            <AccordionPanel pb={4} px={0} pl={2}>
+                              <Text
+                                className={inter.className}
+                                fontSize="sm"
+                                color="#4B5563"
+                                lineHeight="1.6"
+                              >
+                                This engagement will focus on developing Maya's
+                                entrepreneurial vision for a sustainable fashion
+                                accessories brand while building core business
+                                and marketing skills. Through hands-on
+                                mentorship, we'll help her transform her
+                                creative ideas into tangible business plans,
+                                emphasizing ethical practices and sustainable
+                                development. The mentor will provide structured
+                                guidance while nurturing Maya's natural business
+                                acumen and helping her develop systematic
+                                approaches to project implementation.
+                              </Text>
+                            </AccordionPanel>
+                          </AccordionItem>
+                        </Accordion>
+                      </Box>
+                    </Box>
+                  </Flex>
+                </TabPanel>
                 <TabPanel p={4} position="relative">
                   <Box
                     width="100%"
