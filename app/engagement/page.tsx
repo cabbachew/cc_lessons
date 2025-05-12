@@ -18,6 +18,7 @@ import {
   Center,
   VStack,
   Divider,
+  useToast,
 } from "@chakra-ui/react";
 import { PageLayout } from "../components/PageLayout";
 import { apercu, apercuMono, inter } from "../fonts";
@@ -45,6 +46,7 @@ export default function EngagementPage() {
   const router = useRouter();
   const [tabIndex, setTabIndex] = useState(0);
   const [isCardExpanded, setIsCardExpanded] = useState(false);
+  const toast = useToast();
 
   useEffect(() => {
     const tab = searchParams.get("tab");
@@ -115,6 +117,18 @@ export default function EngagementPage() {
       setIsCardExpanded(false);
       removeLessonParameter();
     }
+  };
+
+  const copyToClipboard = (text: string, event: React.MouseEvent) => {
+    event.preventDefault();
+    navigator.clipboard.writeText(text);
+    toast({
+      title: "Email copied",
+      status: "success",
+      duration: 2000,
+      isClosable: true,
+      position: "top",
+    });
   };
 
   return (
@@ -436,24 +450,50 @@ export default function EngagementPage() {
                           {/* Guardian Info */}
                           <Box flex="1" display="flex" flexDirection="column">
                             <Text
-                              fontWeight="bold"
-                              fontSize="md"
                               className={apercu.className}
+                              fontSize="md"
+                              fontWeight="bold"
+                              color="#111827"
                               mb={1}
                             >
-                              Guardian: James Hogerty
+                              Guardian
+                            </Text>
+                            <Text
+                              className={inter.className}
+                              fontSize="m"
+                              color="#4B5563"
+                              mb={2}
+                            >
+                              James Hogerty
                             </Text>
                             <Flex alignItems="center" mb={1}>
                               <Box as="span" mr={2} color="#6B7280">
                                 <EnvelopeIcon width={18} height={18} />
                               </Box>
-                              <Text
-                                fontSize="sm"
-                                color="#6B7280"
-                                className={inter.className}
+                              <Tooltip
+                                label="CLICK TO COPY"
+                                placement="top"
+                                hasArrow
+                                bg="#111827"
+                                color="white"
+                                fontSize="10px"
+                                fontWeight="600"
+                                letterSpacing="1.5px"
+                                fontFamily={apercuMono.style.fontFamily}
                               >
-                                jhogerty@gmail.com
-                              </Text>
+                                <Text
+                                  fontSize="sm"
+                                  color="#6B7280"
+                                  className={inter.className}
+                                  cursor="pointer"
+                                  onClick={(e) =>
+                                    copyToClipboard("jhogerty@gmail.com", e)
+                                  }
+                                  _hover={{ textDecoration: "underline" }}
+                                >
+                                  jhogerty@gmail.com
+                                </Text>
+                              </Tooltip>
                             </Flex>
                             <Flex alignItems="center">
                               <Box as="span" mr={2} color="#6B7280">
@@ -484,24 +524,50 @@ export default function EngagementPage() {
                           {/* Student Info */}
                           <Box flex="1" display="flex" flexDirection="column">
                             <Text
-                              fontWeight="bold"
-                              fontSize="md"
                               className={apercu.className}
+                              fontSize="md"
+                              fontWeight="bold"
+                              color="#111827"
                               mb={1}
                             >
-                              Student: Quintin Leong
+                              Student
+                            </Text>
+                            <Text
+                              className={inter.className}
+                              fontSize="m"
+                              color="#4B5563"
+                              mb={2}
+                            >
+                              Quintin Leong
                             </Text>
                             <Flex alignItems="center" mb={1}>
                               <Box as="span" mr={2} color="#6B7280">
                                 <EnvelopeIcon width={18} height={18} />
                               </Box>
-                              <Text
-                                fontSize="sm"
-                                color="#6B7280"
-                                className={inter.className}
+                              <Tooltip
+                                label="CLICK TO COPY"
+                                placement="top"
+                                hasArrow
+                                bg="#111827"
+                                color="white"
+                                fontSize="10px"
+                                fontWeight="600"
+                                letterSpacing="1.5px"
+                                fontFamily={apercuMono.style.fontFamily}
                               >
-                                quintinrocks@gmail.com
-                              </Text>
+                                <Text
+                                  fontSize="sm"
+                                  color="#6B7280"
+                                  className={inter.className}
+                                  cursor="pointer"
+                                  onClick={(e) =>
+                                    copyToClipboard("quintinrocks@gmail.com", e)
+                                  }
+                                  _hover={{ textDecoration: "underline" }}
+                                >
+                                  quintinrocks@gmail.com
+                                </Text>
+                              </Tooltip>
                             </Flex>
                             <Flex alignItems="center">
                               <Box as="span" mr={2} color="#6B7280">
