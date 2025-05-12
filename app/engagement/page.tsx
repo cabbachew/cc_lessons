@@ -594,17 +594,18 @@ export default function EngagementPage() {
                                 color="#4B5563"
                                 lineHeight="1.6"
                               >
-                                This engagement will focus on developing Maya's
-                                entrepreneurial vision for a sustainable fashion
-                                accessories brand while building core business
-                                and marketing skills. Through hands-on
-                                mentorship, we'll help her transform her
-                                creative ideas into tangible business plans,
-                                emphasizing ethical practices and sustainable
-                                development. The mentor will provide structured
-                                guidance while nurturing Maya's natural business
-                                acumen and helping her develop systematic
-                                approaches to project implementation.
+                                This engagement will focus on developing
+                                Maya&apos;s entrepreneurial vision for a
+                                sustainable fashion accessories brand while
+                                building core business and marketing skills.
+                                Through hands-on mentorship, we&apos;ll help her
+                                transform her creative ideas into tangible
+                                business plans, emphasizing ethical practices
+                                and sustainable development. The mentor will
+                                provide structured guidance while nurturing
+                                Maya&apos;s natural business acumen and helping
+                                her develop systematic approaches to project
+                                implementation.
                               </Text>
                             </AccordionPanel>
                           </AccordionItem>
