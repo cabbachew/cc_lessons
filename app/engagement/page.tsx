@@ -35,6 +35,7 @@ import {
   MapPinIcon,
   EllipsisVerticalIcon,
   EnvelopeIcon,
+  ChevronRightIcon,
 } from "@heroicons/react/24/outline";
 import { PhoneIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
@@ -581,6 +582,30 @@ export default function EngagementPage() {
                                 N/A
                               </Text>
                             </Flex>
+                            <Link
+                              href="/student-profile"
+                              style={{ textDecoration: "none" }}
+                            >
+                              <Flex
+                                alignItems="center"
+                                mt={4}
+                                _hover={{ color: "#111827" }}
+                              >
+                                <Text
+                                  className={apercuMono.className}
+                                  fontSize="xs"
+                                  fontWeight="medium"
+                                  color="#6b7280"
+                                >
+                                  VIEW STUDENT PROFILE
+                                </Text>
+                                <ChevronRightIcon
+                                  width={14}
+                                  height={14}
+                                  className="ml-1"
+                                />
+                              </Flex>
+                            </Link>
                           </Box>
                         </Flex>
                       </Box>
