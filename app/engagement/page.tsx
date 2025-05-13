@@ -340,7 +340,10 @@ export default function EngagementPage() {
                             <Flex
                               alignItems="center"
                               mt={4}
-                              _hover={{ color: "#111827" }}
+                              _hover={{
+                                color: "#111827",
+                                textDecoration: "underline",
+                              }}
                             >
                               <Text
                                 className={apercuMono.className}
@@ -353,6 +356,7 @@ export default function EngagementPage() {
                               <ChevronRightIcon
                                 width={14}
                                 height={14}
+                                color="#6b7280"
                                 className="ml-1"
                               />
                             </Flex>
