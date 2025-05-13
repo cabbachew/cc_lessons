@@ -1,4 +1,4 @@
-import { Box, Flex, Text, VStack, Center } from "@chakra-ui/react";
+import { Box, Flex, Text, VStack } from "@chakra-ui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { apercu, apercuMono, inter } from "../fonts";
 
@@ -188,9 +188,9 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({
               <Text className={inter.className} fontSize="md" color="#4B5563">
                 Quintin learns best through hands-on activities and visual
                 demonstrations. He appreciates clear, step-by-step instructions
-                and responds well to project-based learning. He's particularly
-                engaged when able to see immediate, practical applications for
-                the skills he's learning.
+                and responds well to project-based learning. He&apos;s
+                particularly engaged when able to see immediate, practical
+                applications for the skills he&apos;s learning.
               </Text>
             </Box>
           </Flex>

@@ -9,7 +9,7 @@ import {
   GridItem,
   Button,
 } from "@chakra-ui/react";
-import { ArrowsPointingInIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 import { apercu, apercuMono, inter } from "../fonts";
 
 interface ExpandedLessonCardProps {
