@@ -9,7 +9,7 @@ import {
   GridItem,
   Button,
 } from "@chakra-ui/react";
-import { ArrowsPointingInIcon } from "@heroicons/react/24/outline";
+import { ArrowsPointingInIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { apercu, apercuMono, inter } from "../fonts";
 
 interface ExpandedLessonCardProps {
@@ -29,7 +29,7 @@ export function ExpandedLessonCard({
         left="0"
         right="0"
         bottom="0"
-        bg="rgba(243, 244, 246, 0.8)"
+        bg="rgba(0, 0, 0, 0.7)"
         zIndex={1}
         onClick={onOverlayClick}
       />
@@ -40,8 +40,8 @@ export function ExpandedLessonCard({
         right="0"
         bottom="0"
         width="100%"
-        borderWidth="2px"
-        borderColor="#34d399"
+        borderWidth="1px"
+        borderColor="gray.200"
         borderRadius="none"
         p={0}
         bg="white"
@@ -90,9 +90,9 @@ export function ExpandedLessonCard({
               >
                 Next Lesson
               </Text>
-              <ArrowsPointingInIcon
-                width={18}
-                height={18}
+              <XMarkIcon
+                width={24}
+                height={24}
                 color="#6b7280"
                 cursor="pointer"
                 onClick={onClose}
