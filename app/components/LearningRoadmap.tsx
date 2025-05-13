@@ -633,7 +633,7 @@ export const LearningRoadmap = ({
         </Flex>
 
         {/* Fourth Card with TBD */}
-        <Flex>
+        <Flex mb={4}>
           <Flex direction="column" width="24px" mr={3} alignItems="center">
             <Box
               bg="transparent"
@@ -660,6 +660,103 @@ export const LearningRoadmap = ({
                 borderWidth="1px"
               />
             </Box>
+          </Flex>
+          <Box
+            flex="1"
+            borderRadius="none"
+            borderWidth="1px"
+            borderColor="gray.200"
+            shadow="md"
+            boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+            bg="white"
+          >
+            <Box p={2.5}>
+              <Flex
+                direction={{ base: "column", lg: "row" }}
+                alignItems={{
+                  base: "stretch",
+                  lg: "center",
+                }}
+                justifyContent="space-between"
+              >
+                <Flex alignItems="flex-start" width="full">
+                  <Center
+                    width="64px"
+                    height="64px"
+                    bg="gray.100"
+                    borderRadius="none"
+                    flexShrink={0}
+                  >
+                    <VStack spacing={0} justify="center">
+                      <Text
+                        className={apercu.className}
+                        fontSize="20px"
+                        fontWeight="bold"
+                        color="#4b5563"
+                        lineHeight="1"
+                      >
+                        TBD
+                      </Text>
+                    </VStack>
+                  </Center>
+                  <VStack align="flex-start" spacing={0.5} ml={4}>
+                    <Text
+                      className={apercu.className}
+                      fontSize="16px"
+                      fontWeight="bold"
+                      letterSpacing="-0.02em"
+                      color="#111827"
+                      noOfLines={1}
+                      overflow="hidden"
+                      textOverflow="ellipsis"
+                      maxWidth="100%"
+                    >
+                      Session Title
+                    </Text>
+                  </VStack>
+                </Flex>
+                <Box
+                  px={4}
+                  py={2}
+                  mx={{ base: 0, lg: 1 }}
+                  mt={{ base: 3, lg: 0 }}
+                  bg="white"
+                  borderRadius="none"
+                  color="#4b5563"
+                  fontSize="13px"
+                  fontWeight="600"
+                  className={apercu.className}
+                  cursor="pointer"
+                  borderWidth="1px"
+                  borderColor="gray.200"
+                  _hover={{ bg: "#ecfdf5" }}
+                  transition="all 0.2s"
+                  textAlign="center"
+                  width={{ base: "full", lg: "auto" }}
+                  whiteSpace="nowrap"
+                  display="inline-block"
+                >
+                  Schedule
+                </Box>
+              </Flex>
+            </Box>
+          </Box>
+        </Flex>
+
+        {/* Fifth Card with TBD - Last card without vertical line */}
+        <Flex>
+          <Flex direction="column" width="24px" mr={3} alignItems="center">
+            <Box
+              bg="transparent"
+              height="24px"
+              width="24px"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <MapPinIcon width={16} height={16} color="#CBD5E0" />
+            </Box>
+            {/* No vertical line for the last card */}
           </Flex>
           <Box
             flex="1"
