@@ -10,9 +10,6 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
-  Tooltip,
-  Divider,
-  useToast,
 } from "@chakra-ui/react";
 import { PageLayout } from "../components/PageLayout";
 import { apercu, apercuMono, inter } from "../fonts";
@@ -21,12 +18,8 @@ import { ExpandedLessonCard } from "../components/ExpandedLessonCard";
 import { EngagementDetailsNavigation } from "../components/EngagementDetailsNavigation";
 import { KeyDates } from "../components/KeyDates";
 import { LearningRoadmap } from "../components/LearningRoadmap";
-import {
-  ChevronLeftIcon,
-  EnvelopeIcon,
-  ChevronRightIcon,
-} from "@heroicons/react/24/outline";
-import { PhoneIcon } from "@heroicons/react/24/solid";
+import { GuardianStudentContactCard } from "../components/GuardianStudentContactCard";
+import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
@@ -38,7 +31,6 @@ export default function EngagementPage() {
   const [tabIndex, setTabIndex] = useState(0);
   const [isCardExpanded, setIsCardExpanded] = useState(false);
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
-  const toast = useToast();
 
   useEffect(() => {
     const tab = searchParams.get("tab");
@@ -109,18 +101,6 @@ export default function EngagementPage() {
       setIsCardExpanded(false);
       removeLessonParameter();
     }
-  };
-
-  const copyToClipboard = (text: string, event: React.MouseEvent) => {
-    event.preventDefault();
-    navigator.clipboard.writeText(text);
-    toast({
-      title: "Email copied",
-      status: "success",
-      duration: 2000,
-      isClosable: true,
-      position: "top",
-    });
   };
 
   const toggleProfileModal = () => {
@@ -214,185 +194,9 @@ export default function EngagementPage() {
                     {/* Right column: contact info card and accordion */}
                     <Box width={{ base: "100%", md: "50%" }}>
                       {/* Contact Info Card on top */}
-                      <Box
-                        width="100%"
-                        bg="white"
-                        borderWidth="1px"
-                        borderColor="gray.200"
-                        borderRadius="none"
-                        shadow="md"
-                        boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
-                        p={6}
-                        mb={8}
-                      >
-                        <Flex
-                          direction={{ base: "column", xl: "row" }}
-                          gap={{ base: 4, xl: 0 }}
-                          alignItems="stretch"
-                          height="100%"
-                        >
-                          {/* Guardian Info */}
-                          <Box flex="1" display="flex" flexDirection="column">
-                            <Text
-                              className={apercu.className}
-                              fontSize="md"
-                              fontWeight="bold"
-                              color="#111827"
-                              mb={1}
-                            >
-                              Guardian
-                            </Text>
-                            <Text
-                              className={inter.className}
-                              fontSize="m"
-                              color="#4B5563"
-                              mb={2}
-                            >
-                              James Hogerty
-                            </Text>
-                            <Flex alignItems="center" mb={1}>
-                              <Box as="span" mr={2} color="#6B7280">
-                                <EnvelopeIcon width={18} height={18} />
-                              </Box>
-                              <Tooltip
-                                label="COPY"
-                                placement="top"
-                                hasArrow
-                                bg="#111827"
-                                color="white"
-                                fontSize="10px"
-                                fontWeight="600"
-                                letterSpacing="1.5px"
-                                fontFamily={apercuMono.style.fontFamily}
-                              >
-                                <Text
-                                  fontSize="sm"
-                                  color="#6B7280"
-                                  className={inter.className}
-                                  cursor="pointer"
-                                  onClick={(e) =>
-                                    copyToClipboard("jhogerty@gmail.com", e)
-                                  }
-                                  _hover={{ textDecoration: "underline" }}
-                                >
-                                  jhogerty@gmail.com
-                                </Text>
-                              </Tooltip>
-                            </Flex>
-                            <Flex alignItems="center">
-                              <Box as="span" mr={2} color="#6B7280">
-                                <PhoneIcon width={18} height={18} />
-                              </Box>
-                              <Text
-                                fontSize="sm"
-                                color="#6B7280"
-                                className={inter.className}
-                              >
-                                (650) 650-6500
-                              </Text>
-                            </Flex>
-                          </Box>
-                          {/* Responsive Divider */}
-                          <Divider
-                            orientation="horizontal"
-                            display={{ base: "block", xl: "none" }}
-                            my={2}
-                          />
-                          <Divider
-                            orientation="vertical"
-                            display={{ base: "none", xl: "block" }}
-                            mx={4}
-                            alignSelf="stretch"
-                            height="auto"
-                          />
-                          {/* Student Info */}
-                          <Box flex="1" display="flex" flexDirection="column">
-                            <Text
-                              className={apercu.className}
-                              fontSize="md"
-                              fontWeight="bold"
-                              color="#111827"
-                              mb={1}
-                            >
-                              Student
-                            </Text>
-                            <Text
-                              className={inter.className}
-                              fontSize="m"
-                              color="#4B5563"
-                              mb={2}
-                            >
-                              Quintin Leong
-                            </Text>
-                            <Flex alignItems="center" mb={1}>
-                              <Box as="span" mr={2} color="#6B7280">
-                                <EnvelopeIcon width={18} height={18} />
-                              </Box>
-                              <Tooltip
-                                label="COPY"
-                                placement="top"
-                                hasArrow
-                                bg="#111827"
-                                color="white"
-                                fontSize="10px"
-                                fontWeight="600"
-                                letterSpacing="1.5px"
-                                fontFamily={apercuMono.style.fontFamily}
-                              >
-                                <Text
-                                  fontSize="sm"
-                                  color="#6B7280"
-                                  className={inter.className}
-                                  cursor="pointer"
-                                  onClick={(e) =>
-                                    copyToClipboard("quintinrocks@gmail.com", e)
-                                  }
-                                  _hover={{ textDecoration: "underline" }}
-                                >
-                                  quintinrocks@gmail.com
-                                </Text>
-                              </Tooltip>
-                            </Flex>
-                            <Flex alignItems="center">
-                              <Box as="span" mr={2} color="#6B7280">
-                                <PhoneIcon width={18} height={18} />
-                              </Box>
-                              <Text
-                                fontSize="sm"
-                                color="#6B7280"
-                                className={inter.className}
-                              >
-                                N/A
-                              </Text>
-                            </Flex>
-                            <Box cursor="pointer" onClick={toggleProfileModal}>
-                              <Flex
-                                alignItems="center"
-                                mt={4}
-                                _hover={{
-                                  color: "#111827",
-                                  textDecoration: "underline",
-                                }}
-                              >
-                                <Text
-                                  className={apercuMono.className}
-                                  fontSize="xs"
-                                  fontWeight="medium"
-                                  color="#6b7280"
-                                >
-                                  VIEW STUDENT PROFILE
-                                </Text>
-                                <ChevronRightIcon
-                                  width={14}
-                                  height={14}
-                                  color="#6b7280"
-                                  className="ml-1"
-                                />
-                              </Flex>
-                            </Box>
-                          </Box>
-                        </Flex>
-                      </Box>
+                      <GuardianStudentContactCard
+                        onProfileClick={toggleProfileModal}
+                      />
                       {/* Accordion below */}
                       <Box width="100%">
                         <Accordion allowToggle defaultIndex={[]}>
