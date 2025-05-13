@@ -258,7 +258,7 @@ export default function EngagementPage() {
                                 <EnvelopeIcon width={18} height={18} />
                               </Box>
                               <Tooltip
-                                label="CLICK TO COPY"
+                                label="COPY"
                                 placement="top"
                                 hasArrow
                                 bg="#111827"
@@ -332,7 +332,7 @@ export default function EngagementPage() {
                                 <EnvelopeIcon width={18} height={18} />
                               </Box>
                               <Tooltip
-                                label="CLICK TO COPY"
+                                label="COPY"
                                 placement="top"
                                 hasArrow
                                 bg="#111827"
@@ -817,101 +817,109 @@ export default function EngagementPage() {
                               />
                             </Box>
                           </Flex>
-                          <Box
-                            id="next-session-card"
-                            flex="1"
-                            borderWidth="2px"
-                            borderColor="gray.200"
-                            borderRadius="none"
-                            p={0}
-                            bg="white"
-                            cursor="pointer"
-                            onClick={toggleCardExpansion}
-                            transition="all 0.2s"
-                            shadow="md"
-                            boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
-                            _hover={{
-                              borderColor: "#34d399",
-                              transform: "translateY(-2px)",
-                              boxShadow:
-                                "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-                            }}
+                          <Tooltip
+                            label="VIEW LESSON AND LAUNCH SESSION"
+                            placement="top"
+                            hasArrow
+                            bg="#34d399"
+                            color="white"
                           >
-                            <Box p={2.5}>
-                              <Flex
-                                direction={{ base: "column", lg: "row" }}
-                                alignItems={{
-                                  base: "stretch",
-                                  lg: "center",
-                                }}
-                                justifyContent="space-between"
-                              >
-                                <Flex alignItems="flex-start" width="full">
-                                  <Center
-                                    width="64px"
-                                    height="64px"
-                                    bg="gray.100"
-                                    borderRadius="none"
-                                    flexShrink={0}
-                                  >
-                                    <VStack spacing={0} justify="center">
-                                      <Text
-                                        className={apercuMono.className}
-                                        fontSize="11px"
-                                        letterSpacing="0.5px"
-                                        color="#4b5563"
+                            <Box
+                              id="next-session-card"
+                              flex="1"
+                              borderWidth="2px"
+                              borderColor="gray.200"
+                              borderRadius="none"
+                              p={0}
+                              bg="white"
+                              cursor="pointer"
+                              onClick={toggleCardExpansion}
+                              transition="all 0.2s"
+                              shadow="md"
+                              boxShadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+                              _hover={{
+                                borderColor: "#34d399",
+                                transform: "translateY(-2px)",
+                                boxShadow:
+                                  "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+                              }}
+                            >
+                              <Box p={2.5}>
+                                <Flex
+                                  direction={{ base: "column", lg: "row" }}
+                                  alignItems={{
+                                    base: "stretch",
+                                    lg: "center",
+                                  }}
+                                  justifyContent="space-between"
+                                >
+                                  <Flex alignItems="flex-start" width="full">
+                                    <Center
+                                      width="64px"
+                                      height="64px"
+                                      bg="gray.100"
+                                      borderRadius="none"
+                                      flexShrink={0}
+                                    >
+                                      <VStack spacing={0} justify="center">
+                                        <Text
+                                          className={apercuMono.className}
+                                          fontSize="11px"
+                                          letterSpacing="0.5px"
+                                          color="#4b5563"
+                                        >
+                                          JUN
+                                        </Text>
+                                        <Text
+                                          className={apercu.className}
+                                          fontSize="28px"
+                                          fontWeight="bold"
+                                          color="#4b5563"
+                                          lineHeight="1"
+                                        >
+                                          01
+                                        </Text>
+                                      </VStack>
+                                    </Center>
+                                    <VStack
+                                      align="flex-start"
+                                      spacing={1}
+                                      ml={4}
+                                      flex="1"
+                                    >
+                                      <Flex
+                                        width="100%"
+                                        justifyContent="space-between"
+                                        alignItems="center"
                                       >
-                                        JUN
-                                      </Text>
+                                        <Text
+                                          className={apercu.className}
+                                          fontSize="16px"
+                                          fontWeight="bold"
+                                          letterSpacing="-0.02em"
+                                          color="#111827"
+                                        >
+                                          Next Lesson
+                                        </Text>
+                                        <ArrowsPointingOutIcon
+                                          width={18}
+                                          height={18}
+                                          color="#6b7280"
+                                        />
+                                      </Flex>
                                       <Text
-                                        className={apercu.className}
-                                        fontSize="28px"
-                                        fontWeight="bold"
-                                        color="#4b5563"
-                                        lineHeight="1"
+                                        className={inter.className}
+                                        fontSize="sm"
+                                        color="#4B5563"
                                       >
-                                        01
+                                        ---
                                       </Text>
                                     </VStack>
-                                  </Center>
-                                  <VStack
-                                    align="flex-start"
-                                    spacing={1}
-                                    ml={4}
-                                    flex="1"
-                                  >
-                                    <Flex
-                                      width="100%"
-                                      justifyContent="space-between"
-                                      alignItems="center"
-                                    >
-                                      <Text
-                                        className={apercu.className}
-                                        fontSize="16px"
-                                        fontWeight="bold"
-                                        letterSpacing="-0.02em"
-                                        color="#111827"
-                                      >
-                                        Next Lesson
-                                      </Text>
-                                      <ArrowsPointingOutIcon
-                                        width={18}
-                                        height={18}
-                                        color="#6b7280"
-                                      />
-                                    </Flex>
-                                    <Text
-                                      className={inter.className}
-                                      fontSize="sm"
-                                      color="#4B5563"
-                                    >
-                                      ---
-                                    </Text>
-                                  </VStack>
+                                  </Flex>
                                 </Flex>
-                              </Flex>
+                              </Box>
                             </Box>
-                          </Box>
+                          </Tooltip>
                         </Flex>
                       </Box>
                     )}
