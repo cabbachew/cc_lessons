@@ -1031,18 +1031,69 @@ export default function EngagementPage() {
                                         </Text>
                                       </VStack>
                                     </Flex>
-                                    <Center
-                                      width="32px"
-                                      height="32px"
-                                      borderRadius="none"
-                                      cursor="pointer"
-                                      _hover={{ bg: "gray.50" }}
+                                    {/* Display ellipsis on large screens, buttons on smaller screens */}
+                                    <Box
+                                      display={{ base: "none", lg: "block" }}
                                     >
-                                      <EllipsisVerticalIcon
-                                        width={20}
-                                        color="#6b7280"
-                                      />
-                                    </Center>
+                                      <Center
+                                        width="32px"
+                                        height="32px"
+                                        borderRadius="none"
+                                        cursor="pointer"
+                                        _hover={{ bg: "gray.50" }}
+                                      >
+                                        <EllipsisVerticalIcon
+                                          width={20}
+                                          color="#6b7280"
+                                        />
+                                      </Center>
+                                    </Box>
+                                    {/* Responsive action buttons for smaller screens */}
+                                    <Flex
+                                      display={{ base: "flex", lg: "none" }}
+                                      width="100%"
+                                      gap={2}
+                                      mt={3}
+                                    >
+                                      <Box
+                                        flex="1"
+                                        px={2}
+                                        py={1.5}
+                                        bg="white"
+                                        borderRadius="none"
+                                        color="#4b5563"
+                                        fontSize="13px"
+                                        fontWeight="600"
+                                        className={apercu.className}
+                                        cursor="pointer"
+                                        borderWidth="1px"
+                                        borderColor="gray.200"
+                                        _hover={{ bg: "#ecfdf5" }}
+                                        transition="all 0.2s"
+                                        textAlign="center"
+                                      >
+                                        Reschedule
+                                      </Box>
+                                      <Box
+                                        flex="1"
+                                        px={2}
+                                        py={1.5}
+                                        bg="white"
+                                        borderRadius="none"
+                                        color="#4b5563"
+                                        fontSize="13px"
+                                        fontWeight="600"
+                                        className={apercu.className}
+                                        cursor="pointer"
+                                        borderWidth="1px"
+                                        borderColor="gray.200"
+                                        _hover={{ bg: "#FEE2E2" }}
+                                        transition="all 0.2s"
+                                        textAlign="center"
+                                      >
+                                        Cancel
+                                      </Box>
+                                    </Flex>
                                   </Flex>
                                 </Box>
                               </Box>
@@ -1152,18 +1203,69 @@ export default function EngagementPage() {
                                         </Text>
                                       </VStack>
                                     </Flex>
-                                    <Center
-                                      width="32px"
-                                      height="32px"
-                                      borderRadius="none"
-                                      cursor="pointer"
-                                      _hover={{ bg: "gray.50" }}
+                                    {/* Display ellipsis on large screens, buttons on smaller screens */}
+                                    <Box
+                                      display={{ base: "none", lg: "block" }}
                                     >
-                                      <EllipsisVerticalIcon
-                                        width={20}
-                                        color="#6b7280"
-                                      />
-                                    </Center>
+                                      <Center
+                                        width="32px"
+                                        height="32px"
+                                        borderRadius="none"
+                                        cursor="pointer"
+                                        _hover={{ bg: "gray.50" }}
+                                      >
+                                        <EllipsisVerticalIcon
+                                          width={20}
+                                          color="#6b7280"
+                                        />
+                                      </Center>
+                                    </Box>
+                                    {/* Responsive action buttons for smaller screens */}
+                                    <Flex
+                                      display={{ base: "flex", lg: "none" }}
+                                      width="100%"
+                                      gap={2}
+                                      mt={3}
+                                    >
+                                      <Box
+                                        flex="1"
+                                        px={2}
+                                        py={1.5}
+                                        bg="white"
+                                        borderRadius="none"
+                                        color="#4b5563"
+                                        fontSize="13px"
+                                        fontWeight="600"
+                                        className={apercu.className}
+                                        cursor="pointer"
+                                        borderWidth="1px"
+                                        borderColor="gray.200"
+                                        _hover={{ bg: "#ecfdf5" }}
+                                        transition="all 0.2s"
+                                        textAlign="center"
+                                      >
+                                        Reschedule
+                                      </Box>
+                                      <Box
+                                        flex="1"
+                                        px={2}
+                                        py={1.5}
+                                        bg="white"
+                                        borderRadius="none"
+                                        color="#4b5563"
+                                        fontSize="13px"
+                                        fontWeight="600"
+                                        className={apercu.className}
+                                        cursor="pointer"
+                                        borderWidth="1px"
+                                        borderColor="gray.200"
+                                        _hover={{ bg: "#FEE2E2" }}
+                                        transition="all 0.2s"
+                                        textAlign="center"
+                                      >
+                                        Cancel
+                                      </Box>
+                                    </Flex>
                                   </Flex>
                                 </Box>
                               </Box>
@@ -1273,18 +1375,69 @@ export default function EngagementPage() {
                                         </Text>
                                       </VStack>
                                     </Flex>
-                                    <Center
-                                      width="32px"
-                                      height="32px"
-                                      borderRadius="none"
-                                      cursor="pointer"
-                                      _hover={{ bg: "gray.50" }}
+                                    {/* Display ellipsis on large screens, buttons on smaller screens */}
+                                    <Box
+                                      display={{ base: "none", lg: "block" }}
                                     >
-                                      <EllipsisVerticalIcon
-                                        width={20}
-                                        color="#6b7280"
-                                      />
-                                    </Center>
+                                      <Center
+                                        width="32px"
+                                        height="32px"
+                                        borderRadius="none"
+                                        cursor="pointer"
+                                        _hover={{ bg: "gray.50" }}
+                                      >
+                                        <EllipsisVerticalIcon
+                                          width={20}
+                                          color="#6b7280"
+                                        />
+                                      </Center>
+                                    </Box>
+                                    {/* Responsive action buttons for smaller screens */}
+                                    <Flex
+                                      display={{ base: "flex", lg: "none" }}
+                                      width="100%"
+                                      gap={2}
+                                      mt={3}
+                                    >
+                                      <Box
+                                        flex="1"
+                                        px={2}
+                                        py={1.5}
+                                        bg="white"
+                                        borderRadius="none"
+                                        color="#4b5563"
+                                        fontSize="13px"
+                                        fontWeight="600"
+                                        className={apercu.className}
+                                        cursor="pointer"
+                                        borderWidth="1px"
+                                        borderColor="gray.200"
+                                        _hover={{ bg: "#ecfdf5" }}
+                                        transition="all 0.2s"
+                                        textAlign="center"
+                                      >
+                                        Reschedule
+                                      </Box>
+                                      <Box
+                                        flex="1"
+                                        px={2}
+                                        py={1.5}
+                                        bg="white"
+                                        borderRadius="none"
+                                        color="#4b5563"
+                                        fontSize="13px"
+                                        fontWeight="600"
+                                        className={apercu.className}
+                                        cursor="pointer"
+                                        borderWidth="1px"
+                                        borderColor="gray.200"
+                                        _hover={{ bg: "#FEE2E2" }}
+                                        transition="all 0.2s"
+                                        textAlign="center"
+                                      >
+                                        Cancel
+                                      </Box>
+                                    </Flex>
                                   </Flex>
                                 </Box>
                               </Box>
@@ -1390,7 +1543,7 @@ export default function EngagementPage() {
                                       px={4}
                                       py={2}
                                       mx={{ base: 0, lg: 1 }}
-                                      mt={{ base: 4, lg: 0 }}
+                                      mt={{ base: 3, lg: 0 }}
                                       bg="white"
                                       borderRadius="none"
                                       color="#4b5563"
