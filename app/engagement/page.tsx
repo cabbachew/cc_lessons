@@ -11,8 +11,6 @@ import {
   AccordionPanel,
   AccordionIcon,
   Tooltip,
-  Center,
-  VStack,
   Divider,
   useToast,
 } from "@chakra-ui/react";
@@ -25,9 +23,6 @@ import { KeyDates } from "../components/KeyDates";
 import { LearningRoadmap } from "../components/LearningRoadmap";
 import {
   ChevronLeftIcon,
-  ArrowsPointingOutIcon,
-  MapPinIcon,
-  EllipsisVerticalIcon,
   EnvelopeIcon,
   ChevronRightIcon,
 } from "@heroicons/react/24/outline";

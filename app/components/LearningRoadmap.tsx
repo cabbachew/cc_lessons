@@ -12,10 +12,7 @@ import {
   MapPinIcon,
   ArrowsPointingOutIcon,
   EllipsisVerticalIcon,
-  ChevronRightIcon,
 } from "@heroicons/react/24/outline";
-import { useRouter } from "next/navigation";
-import { useCallback } from "react";
 
 interface LearningRoadmapProps {
   isCardExpanded: boolean;
@@ -26,7 +23,6 @@ interface LearningRoadmapProps {
 export const LearningRoadmap = ({
   isCardExpanded,
   toggleCardExpansion,
-  removeLessonParameter,
 }: LearningRoadmapProps) => {
   return (
     <Box bg="white" id="learning-roadmap-container">
